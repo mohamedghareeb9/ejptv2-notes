@@ -10,11 +10,11 @@ SNMP commonly uses UDP:
 - UDP 161 for manager-to-agent queries.
 - UDP 162 for notifications/traps sent to a manager.
 
-The source PDF names four operation types:
+Common SNMP operations and message types include:
 - **Read** — retrieve managed-object values.
 - **Write** — change supported values when permitted.
 - **Trap** — send an asynchronous notification.
-- **Traversal** — walk through a branch of the management information tree.
+- **GetNext / GetBulk** — retrieve subsequent objects in the MIB tree; tools commonly expose this as a walk operation.
 
 ## 3. Community strings and versions
 The source notes describe SNMP community strings as shared-string access control, and name the common defaults **public** (often read access) and **private** (often write access). Treat these as historical/default examples, not guarantees. Real permissions depend on SNMP version and device configuration. SNMPv1/v2c community strings do not provide the security properties of modern authenticated/encrypted management protocols.
@@ -44,3 +44,20 @@ A **Management Information Base (MIB)** defines the managed objects that an SNMP
 4. Why should public and private not be assumed to exist on every device?
 5. Why is SNMPv3 preferred over community-string-based versions?
 6. Why is write access more sensitive than read-only access?
+
+
+## Practical checks
+
+For an authorized device, a basic read-only SNMPv2c query might look like this (replace the community string with one explicitly provided for the lab):
+
+```bash
+snmpwalk -v2c -c <LAB_READ_ONLY_COMMUNITY> <AUTHORIZED_HOST> 1.3.6.1.2.1.1
+```
+
+This queries the standard system-information subtree. Avoid testing guessed community strings against production devices, and do not issue SNMP SET operations unless configuration changes are explicitly approved.
+
+## Resources
+
+- [RFC 3411: SNMP architecture](https://www.rfc-editor.org/rfc/rfc3411)
+- [Net-SNMP documentation](https://www.net-snmp.org/docs/)
+- [Net-SNMP snmpwalk manual](https://www.net-snmp.org/docs/man/snmpwalk.html)
