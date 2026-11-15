@@ -25,7 +25,7 @@ This repository is an independent study resource. The chapters combine practical
 
 ## Original study notes and content map
 
-The notes also draw on the author's earlier public [eJPTv2-Notes repository](https://github.com/dev-angelist/eJPTv2-Notes). Its chapter structure, enumeration material, Metasploit workflows, exploitation and post-exploitation notes, social-engineering material, and command cheat sheet informed the organization and practical examples in this repository. The current repository reorganizes and supplements that material.
+This repository is maintained as a standalone study resource. Its chapters are organized around the supplied eJPTv2 study materials and the current official certification information; all diagrams and assets should be maintained within this repository.
 
 The two study PDFs used during preparation contributed foundational Linux command-line material and network concepts. Their topics are represented in the following chapters:
 
@@ -84,6 +84,6 @@ Page numbers below refer to the two supplied study PDFs in their original upload
 
 ### Known coverage gaps
 
-The sources and current public exam announcement support the topics mapped above. The repository still needs more hands-on, lab-verified walkthroughs for the newer CMS/WordPress topics, more worked examples for some network and cryptography concepts, and a current practical validation pass across tool commands and screenshots. The remaining legacy illustrations that depended on the former GitBook CDN have been removed and replaced with original Mermaid diagrams and explanatory tables maintained in this repository. Some older author's raw GitHub asset links still point to files in the old repository's public asset tree and remain a cross-repository dependency; these are separate from the inaccessible GitBook-hosted material and can be replaced with newly created repository-owned illustrations in a later pass. The separate Offensive AI course is not treated as a core exam domain here; it should remain supplementary unless the official exam objectives change.
+The sources and current public exam announcement support the topics mapped above. The repository still needs more hands-on, lab-verified walkthroughs for the newer CMS/WordPress topics, more worked examples for some network and cryptography concepts, and a current practical validation pass across tool commands and screenshots. The remaining legacy illustrations that depended on the former GitBook CDN have been removed and replaced with original Mermaid diagrams and explanatory tables maintained in this repository. The remaining legacy screenshots have been removed rather than relying on external repositories. Visual explanations are being replaced with repository-maintained diagrams and text. The separate Offensive AI course is not treated as a core exam domain here; it should remain supplementary unless the official exam objectives change.
 
 The source material is not a substitute for the current official exam objectives. See the INE certification page and March 2026 update announcement above for the current learning-path and exam information.
