@@ -14,11 +14,14 @@ A structured study notebook built from my two uploaded study PDFs. The older [de
 2. [Footprinting and scanning](assessment-methodologies-and-auditing/1.2-footprinting-and-scanning.md)
 3. [Service enumeration](assessment-methodologies-and-auditing/1.3-enumeration/)
 4. [Vulnerability assessment](assessment-methodologies-and-auditing/1.4-vulnerability-assessment.md)
-5. [Linux foundations](host-and-network-penetration-testing/2.1-system-host-based-attacks/01-linux-foundations.md)
-6. [Active Directory fundamentals](host-and-network-penetration-testing/2.1-system-host-based-attacks/02-active-directory-fundamentals.md)
-7. [Network foundations and attacks](host-and-network-penetration-testing/2.2-network-based-attacks.md)
-8. [Metasploit workflow](host-and-network-penetration-testing/2.3-the-metasploit-framework/01-metasploit-workflow.md)
-9. [Web application testing](web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md)
+5. [Auditing fundamentals](assessment-methodologies-and-auditing/1.5-auditing-fundamentals.md)
+6. [Linux foundations](host-and-network-penetration-testing/2.1-system-host-based-attacks/01-linux-foundations.md)
+7. [Active Directory fundamentals](host-and-network-penetration-testing/2.1-system-host-based-attacks/02-active-directory-fundamentals.md)
+8. [Network foundations and attacks](host-and-network-penetration-testing/2.2-network-based-attacks.md)
+9. [Metasploit workflow](host-and-network-penetration-testing/2.3-the-metasploit-framework/01-metasploit-workflow.md)
+10. [Exploitation](host-and-network-penetration-testing/2.4-exploitation.md)
+11. [Post-exploitation](host-and-network-penetration-testing/2.5-post-exploitation.md)
+12. [Web application testing](web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md)
 
 ## Source and accuracy policy
 - Primary sources: eJPTv2.pdf (85 pages) and eJPTv2_Pr.pdf (107 pages).
