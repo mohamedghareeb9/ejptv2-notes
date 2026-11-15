@@ -1,15 +1,12 @@
-# 1.3 Enumeration (overview)
+# 1.3 Enumeration
 
-**Status:** ⬜ planned
+See [00-overview.md](00-overview.md) for the general theory and methodology.
 
-## 1. How it works (from zero)
-
-## 2. The attacker's view
-
-## 3. Methodology
-
-## 4. Real CVEs & further reading
-
-## 5. Self-test
-
-## 6. Quick recap
+| Service | Note |
+|---|---|
+| SMB | [01-smb-enumeration.md](01-smb-enumeration.md) |
+| FTP | [02-ftp-enumeration.md](02-ftp-enumeration.md) |
+| SSH | [03-ssh-enumeration.md](03-ssh-enumeration.md) |
+| HTTP | [04-http-enumeration.md](04-http-enumeration.md) |
+| MySQL | [05-mysql-enumeration.md](05-mysql-enumeration.md) |
+| SMTP | [06-smtp-enumeration.md](06-smtp-enumeration.md) |
