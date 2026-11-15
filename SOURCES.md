@@ -3,6 +3,8 @@
 This repository is an independent study resource. The chapters combine practical explanations, command examples, and workflows for learning penetration testing.
 
 ## Official and primary documentation
+- [INE eJPT certification and exam objectives](https://security.ine.com/certifications/ejpt-certification/)
+- [INE March 2026 eJPT update announcement](https://ine.com/newsroom/ine-security-launches-updated-ejpt-certification-with-expanded-web-app-testing-recon-training-and-offensive-ai)
 - [INE Certifications](https://ine.com/learning/certifications)
 - [Nmap Reference Guide](https://nmap.org/book/man.html)
 - [Nmap Scripting Engine](https://nmap.org/book/nse.html)
