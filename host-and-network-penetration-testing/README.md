@@ -1,5 +1,7 @@
 # Host & Network Penetration Testing
 
+![Network discovery and enumeration](../assets/diagrams/network-discovery.svg)
+
 | Chapter | Topics |
 |---|---|
 | [2.1 System / Host-Based Attacks](2.1-system-host-based-attacks/) | Linux foundations, Active Directory, Linux and Windows vulnerabilities |
