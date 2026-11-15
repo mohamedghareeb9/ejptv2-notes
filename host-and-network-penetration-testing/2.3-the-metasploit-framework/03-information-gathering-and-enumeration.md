@@ -242,3 +242,10 @@ search type:auxiliary name:smtpuse auxiliary/scanner/smtp/smtp\_versionoptionsru
 - [Metasploit documentation](https://docs.metasploit.com/)
 - [Nmap Reference Guide](https://nmap.org/book/man.html)
 - [Metasploit database documentation](https://www.offsec.com/metasploit-unleashed/using-databases/)
+
+
+## Resources
+
+- [Metasploit documentation](https://docs.metasploit.com/)
+- [Nmap Reference Guide](https://nmap.org/book/man.html)
+- [Metasploit database documentation](https://www.offsec.com/metasploit-unleashed/using-databases/)
