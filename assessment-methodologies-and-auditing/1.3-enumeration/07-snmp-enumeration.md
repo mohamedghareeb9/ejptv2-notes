@@ -17,7 +17,7 @@ Common SNMP operations and message types include:
 - **GetNext / GetBulk** — retrieve subsequent objects in the MIB tree; tools commonly expose this as a walk operation.
 
 ## 3. Community strings and versions
-The source notes describe SNMP community strings as shared-string access control, and name the common defaults **public** (often read access) and **private** (often write access). Treat these as historical/default examples, not guarantees. Real permissions depend on SNMP version and device configuration. SNMPv1/v2c community strings do not provide the security properties of modern authenticated/encrypted management protocols.
+SNMPv1 and SNMPv2c use community strings as shared secrets. Common historical defaults include **public** (often read access) and **private** (often write access), but permissions depend on device configuration. Real permissions depend on SNMP version and device configuration. SNMPv1/v2c community strings do not provide the security properties of modern authenticated/encrypted management protocols.
 
 ## 4. MIB and OID
 A **Management Information Base (MIB)** defines the managed objects that an SNMP agent exposes. Objects are organized hierarchically. An **Object Identifier (OID)** identifies a specific object by its position in that hierarchy. A walk can enumerate a subtree and reveal information such as interface names, system descriptions, or device counters, depending on access.
