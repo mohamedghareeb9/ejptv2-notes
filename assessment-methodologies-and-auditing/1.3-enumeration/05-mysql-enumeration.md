@@ -31,8 +31,36 @@ During MySQL enumeration, a tester or analyst might perform the following activi
 4. **Column Enumeration:** Listing the columns within a specific table. Columns define the attributes of the data stored in the table and provide insights into the type of data present.
 5. **Data Enumeration:** Retrieving sample data from specific columns to understand the content and format of the data within the tables.
 6. **User Enumeration:** Identifying the users with access to the MySQL server and their privileges. This information can help in understanding who has access to sensitive data and what actions they can perform.
-7. **Privilege Escalation:** Checking for misconfigured permissions that might allow unauthorized users to access or modify sensitive data.
+7. **Privilege Review:** Reviewing granted privileges for excessive access, such as application accounts with administrative permissions. Enumeration itself should not modify privileges.
 8. **Stored Procedures and Functions:** Identifying stored procedures and functions within the database, which are sequences of SQL statements that can be executed as a single unit.
 9. **Error Messages:** Analyzing error messages returned by the MySQL server when executing queries. These messages might reveal information about the database structure or configuration.
 10. **Security Features:** Examining security-related features such as encryption settings, authentication mechanisms, and access control settings.
 
+
+
+## Practical checks
+
+First identify the service, then authenticate only with credentials explicitly supplied for the assessment:
+
+```bash
+nmap -p3306 -sV --script mysql-info,mysql-variables <AUTHORIZED_HOST>
+mysql -h <AUTHORIZED_HOST> -u <AUTHORIZED_USER> -p
+```
+
+After connecting, use read-only queries appropriate to the granted account:
+
+```sql
+SELECT VERSION();
+SHOW DATABASES;
+SELECT USER(), CURRENT_USER();
+SHOW GRANTS;
+```
+
+Database and table visibility depends on the authenticated account's privileges. Do not assume that a successful TCP connection grants access to application data.
+
+## Resources
+
+- [MySQL Reference Manual](https://dev.mysql.com/doc/refman/8.4/en/)
+- [MySQL client documentation](https://dev.mysql.com/doc/refman/8.4/en/mysql.html)
+- [Nmap mysql-info script](https://nmap.org/nsedoc/scripts/mysql-info.html)
+- [Nmap mysql-variables script](https://nmap.org/nsedoc/scripts/mysql-variables.html)
