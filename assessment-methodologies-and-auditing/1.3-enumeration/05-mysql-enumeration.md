@@ -1,45 +1,38 @@
-# MySQL Enumeration
+# MySQL Enum
 
-**Status:** draft | **Authorized targets only**
+## What is MySQL?
 
----
+MySQL is an open-source relational database management system (RDBMS) that is widely used for managing and organizing structured data. It is a popular choice for building web applications, content management systems, and various other software projects that require efficient storage and retrieval of data.
 
-## 1. How it works
+Here are some key features and aspects of MySQL:
 
-**MySQL** (port 3306) is a relational database server. In a well-architected system, a database should almost never be directly reachable from outside the internal network — if it's exposed to the internet or even just to your scanning position, that configuration choice is itself a finding worth noting before anything else.
+1. **Relational Database Management System:** MySQL follows the principles of a relational database, which means that data is organized into tables with rows and columns. It allows for the creation of relationships between different tables to establish connections between data points.
+2. **Structured Query Language (SQL):** MySQL uses SQL as its query language for managing and manipulating data. SQL provides a standardized way to interact with the database, including operations like creating, retrieving, updating, and deleting data.
+3. **Open Source:** MySQL is released under an open-source license, which means that the source code is available to the public, and users can modify and distribute it according to the terms of the license.
+4. **Client-Server Architecture:** MySQL operates in a client-server architecture. Clients (such as applications or user interfaces) communicate with the MySQL server to perform database operations.
+5. **Data Security:** MySQL provides various security features, including user authentication, access control, and the ability to encrypt data for secure storage.
+6. **Performance Optimization:** MySQL offers various features for optimizing database performance, such as indexing, caching, and query optimization.
+7. **Replication and Clustering:** MySQL supports replication, which allows data to be copied from one server to another for redundancy and load balancing. Clustering features enable the distribution of data across multiple servers for improved performance and availability.
+8. **Cross-Platform Support:** MySQL is compatible with various operating systems, making it a versatile choice for different environments.
+9. **Integration with Programming Languages:** MySQL can be easily integrated with popular programming languages such as PHP, Python, Java, and more, making it suitable for building dynamic web applications.
+10. **Community and Ecosystem:** MySQL has a large and active community of developers, users, and contributors. This community support includes documentation, tutorials, forums, and third-party tools that enhance its functionality.
 
-## 2. The attacker's view
+MySQL is used by a wide range of organizations, from small businesses to large enterprises, to store and manage their data. It is commonly employed for applications that require structured data storage, retrieval, and manipulation, such as e-commerce platforms, content management systems, data analytics tools, and more.
 
-- **Default/weak root credentials** are surprisingly common on misconfigured, legacy, or lab/test systems that were never meant to stay exposed.
-- Once authenticated, you can enumerate **databases, tables, and user accounts** directly, and in some configurations pull password hashes for offline cracking.
-- Even failed login attempts confirm the database is reachable and give you the exact version, which (like every other service here) maps to known CVEs.
+## MySQL Enumeration
 
-## 3. Methodology
+MySQL enumeration refers to the process of systematically gathering information about a MySQL database server and its databases, tables, columns, and other elements. Enumeration involves collecting details about the structure, content, and configuration of the MySQL database to understand its layout and potential vulnerabilities. This process is often carried out during security assessments, penetration testing, or ethical hacking to identify weak points that attackers could exploit.
 
-```
-use auxiliary/scanner/mysql/mysql_version    # version fingerprint
-use auxiliary/scanner/mysql/mysql_login      # credential brute force (USERNAME + PASS_FILE)
+During MySQL enumeration, a tester or analyst might perform the following activities:
 
-# Once authenticated:
-use auxiliary/admin/mysql/mysql_enum         # detailed server config + account enumeration
-use auxiliary/admin/mysql/mysql_sql          # run arbitrary SQL, e.g. SQL "show databases;"
-```
+1. **Banner Grabbing:** Connecting to the MySQL server and analyzing the initial response, known as the banner, to identify the MySQL server software and version in use. This information can help in understanding the server's characteristics and vulnerabilities associated with that specific software version.
+2. **Database Enumeration:** Listing the available databases on the MySQL server. This provides an overview of the databases hosted on the server and can indicate which databases might contain sensitive information.
+3. **Table Enumeration:** Identifying the tables within a specific database. Tables contain structured data, and identifying them helps in understanding the data structure and potential sensitive information.
+4. **Column Enumeration:** Listing the columns within a specific table. Columns define the attributes of the data stored in the table and provide insights into the type of data present.
+5. **Data Enumeration:** Retrieving sample data from specific columns to understand the content and format of the data within the tables.
+6. **User Enumeration:** Identifying the users with access to the MySQL server and their privileges. This information can help in understanding who has access to sensitive data and what actions they can perform.
+7. **Privilege Escalation:** Checking for misconfigured permissions that might allow unauthorized users to access or modify sensitive data.
+8. **Stored Procedures and Functions:** Identifying stored procedures and functions within the database, which are sequences of SQL statements that can be executed as a single unit.
+9. **Error Messages:** Analyzing error messages returned by the MySQL server when executing queries. These messages might reveal information about the database structure or configuration.
+10. **Security Features:** Examining security-related features such as encryption settings, authentication mechanisms, and access control settings.
 
-Manual:
-```bash
-mysql -h <target> -u root -p
-```
-
-## 4. Real CVEs
-
-Version-dependent — always check the exact MySQL/MariaDB/Percona version found against the NVD; this family of software has had numerous authentication and privilege-escalation CVEs over the years tied to specific versions.
-
-## 5. Self-test
-
-1. Why is "a database is reachable from here at all" sometimes the actual finding, independent of any CVE?
-2. What's the first thing to check before running any password list against a MySQL server?
-3. Why does authenticating successfully change what you can enumerate, compared to the version scan alone?
-
-## 6. Quick recap
-
-MySQL exposure: note the exposure itself, check the version, test credentials carefully, then enumerate schema/accounts if authenticated.
