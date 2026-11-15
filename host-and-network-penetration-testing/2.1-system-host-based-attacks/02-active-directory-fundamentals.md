@@ -36,7 +36,7 @@ The practical notes identify two Windows authentication approaches:
 NTLM is a challenge-response authentication protocol retained for compatibility with legacy environments.
 
 ### Kerberos
-Kerberos is ticket-based authentication and is the default domain authentication protocol in modern AD environments. At a high level, a user obtains a ticket and uses tickets to request access to services rather than repeatedly sending the account password.
+Kerberos is ticket-based authentication and is the default domain authentication protocol in modern AD environments. A client first obtains a Ticket-Granting Ticket (TGT) from the Key Distribution Center (KDC), then uses it to request a service ticket for a particular service. The service ticket is presented to that service; the user's password is not repeatedly sent to each service.
 
 ## 4. Group Policy and LSDOU
 Group Policy is used to centrally enforce configuration and security settings, such as password policy, screen-lock settings, device restrictions, and scripts.
@@ -50,7 +50,7 @@ The study notes list the application order as **LSDOU**:
 The effective result depends on policy inheritance, links, enforcement, and conflicts; do not reduce every real-world case to “last applied always wins” without checking the actual policy configuration.
 
 ## 5. LDAP and DNS
-**LDAP** is used to query directory information, including users, groups, and computers.
+**LDAP** is used to query and manage directory information, including users, groups, and computers. LDAP commonly uses TCP 389; LDAP over TLS (LDAPS) commonly uses TCP 636. Active Directory also uses DNS SRV records to advertise domain-controller services.
 
 AD relies heavily on DNS to locate domain controllers and domain services. If clients cannot resolve the relevant AD DNS records, domain operations and authentication discovery can fail.
 
@@ -99,3 +99,13 @@ The notes also name tools to recognize: **BloodHound, Mimikatz, CrackMapExec, Im
 - Kerberos is ticket-based; NTLM is a legacy challenge-response mechanism.
 - LDAP queries directory information; DNS helps clients locate AD services.
 - Common attack concepts include password spraying, Kerberoasting, AS-REP roasting, pass-the-hash, pass-the-ticket, lateral movement, and privilege escalation.
+
+
+## Resources
+
+- [Microsoft Learn: Active Directory Domain Services](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/)
+- [Microsoft Learn: Kerberos authentication overview](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview)
+- [Microsoft Learn: LDAP](https://learn.microsoft.com/en-us/windows/win32/adsi/ldap)
+- [Microsoft Learn: Group Policy](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/group-policy/group-policy-overview)
+- [MITRE ATT&CK: Enterprise techniques](https://attack.mitre.org/techniques/enterprise/)
+- [BloodHound documentation](https://bloodhound.specterops.io/)
