@@ -1617,3 +1617,13 @@ S-1-22-1-1003 Unix User\admin (Local User)
 >  nancy SID is `S-1-22-1-1002`
 >
 >  admin SID is `S-1-22-1-1003`
+
+
+## Resources
+
+- [Microsoft: SMB overview](https://learn.microsoft.com/en-us/windows-server/storage/file-server/file-server-smb-overview)
+- [Microsoft: SMB security](https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-security)
+- [Samba documentation](https://www.samba.org/samba/docs/)
+- [Nmap SMB scripts](https://nmap.org/nsedoc/categories/smb.html)
+- [smbclient manual](https://www.samba.org/samba/docs/current/man-html/smbclient.1.html)
+- [Impacket documentation](https://github.com/fortra/impacket)
