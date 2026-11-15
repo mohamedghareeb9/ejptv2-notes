@@ -33,7 +33,7 @@ Key features and components of Metasploit Framework include:
 
 🗒️ **Metasploit Framework Console** ([**MSFconsole**](https://www.offsec.com/metasploit-unleashed/msfconsole/)) - an all in one interface that provides with access to all the functionality of the MSF.msfconsole🗒️ **Metasploit Framework Command Line Interface** ([**MSFcli**](https://www.offsec.com/metasploit-unleashed/msfcli/)) - a command line utility used to facilitate the creation of automation scripts that utilize Metasploit modules.
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-6ee4a0d5c38e0d66bff819ea6c0c1bef5d1425fd%2Fimage-20230409121754103.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 * Discontinued in 2015, MSFconsole can be used with the same functionality of _redirecting output from other tools into `msfcli` and vice versa._
 
@@ -47,7 +47,7 @@ Key features and components of Metasploit Framework include:
 
 Metasploit Framework Architecture - oreilly.com🗒️ A **module** is the piece of code that can be utilized and executed by the MSF.The MSF **libraries** (Rex, Core, Base) allow to extend and initiate functionality, facilitating the execution of modules without having to write additional code.
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-dfcb2d72d361cd250ec609ab29839766df2bc3e8%2F16c68136-bdbb-4846-be83-4e93822ee0de.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 ### ​[Modules](https://www.offsec.com/metasploit-unleashed/modules-and-locations/)​ <a href="#modules" id="modules"></a>
 
@@ -77,18 +77,18 @@ Metasploit Framework Architecture - oreilly.com🗒️ A **module** is the piece
 
 ### ​[File System](https://www.offsec.com/metasploit-unleashed/filesystem-and-libraries/)​ <a href="#file-system" id="file-system"></a>
 
-ls /usr/share/metasploit-framework![](https://2946054920-files.gitbook.io/\~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-6266e61e004c35335ebd5cba8fe124c141a54577%2Fimage-20230409193231022.png?alt=media)ls /usr/share/metasploit-framework
+ls /usr/share/metasploit-frameworkls /usr/share/metasploit-framework
 
 * MSF filesystem is intuitive and organized by directories.
 * Modules are stored under:
   * `/usr/share/metasploit-framework/modules/`
   * `~/.msf4/modules` - user specified modules
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-d451e90ada2876a752f0a3052ab9f4f2951f7ad4%2Fimage-20230409193537174.png?alt=media" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-8d4a98ff6473768678b1f40ffc069ef026143d07%2Fimage-20230409194316207.png?alt=media" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-866c18108752f12fd6db31341bf1b512d48dc945%2Fimage-20230409194335838.png?alt=media" alt=""><figcaption></figcaption></figure>
+
+
+
 
 ## Pentesting with MSF <a href="#pentesting-with-msf" id="pentesting-with-msf"></a>
 
@@ -128,7 +128,7 @@ ls /usr/share/metasploit-framework![](https://2946054920-files.gitbook.io/\~/fil
 
 PTES - infopulse.com
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-30fb65a47e60670eaae992e42cf7a6f0ec5f40db%2Fptes-methodology-pic-1-infopulse.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 ## Metasploit Fundamentals <a href="#metasploit-fundamentals" id="metasploit-fundamentals"></a>
 
@@ -192,29 +192,29 @@ An MSF module requires additional information that can be configured through the
 
 helpversion​show -hshow allshow exploits​search \<STRING>use \<MODULE\_NAME>set \<OPTION>runexecute # same as run​sessionsconnect
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-99d3099423f01df14d13ae678e34a63d51cd2022%2Fimage-20230412141308687.png?alt=media" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-1cbdbf6c23c002d95d6cf5d018979f2ce9c314f3%2Fimage-20230412141325709.png?alt=media" alt=""><figcaption></figcaption></figure>
+
+
 
 ### **Port Scan Example**
 
 search portscanuse auxiliary/scanner/portscan/tcpshow optionsset RHOSTS \<TARGET\_IP>set PORTS 1-1000run# CTRL+C to cancel the running processback
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-716f004199034eba2c97f696305d7d8451829ebe%2Fimage-20230412175031929.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 **CVE Exploits Example**
 
 search cve:2017 type:exploit platform:windowssearch cve:2017 type:exploit platform:window
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-83f80e9aa6ea8c78c68d795a9472987378c204e5%2Fimage-20230412175150747.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 **Payload Options Example**
 
 search eternalblueuse 0# specify the identifierset payload \<PAYLOAD\_NAME>set RHOSTS \<TARGET\_IP>run# orexploit
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-605c0c94d2ede50491dc04b0b6dfc46bd40dd040%2Fimage-20230412175734432.png?alt=media" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-1418061364ebe14a83179e0fc37aa537d3c66f54%2Fimage-20230412175427698.png?alt=media" alt=""><figcaption></figcaption></figure>
+
+
 
 #### ​[Workspaces](https://docs.rapid7.com/metasploit/managing-workspaces/)​ <a href="#workspaces" id="workspaces"></a>
 
@@ -228,13 +228,13 @@ search eternalblueuse 0# specify the identifierset payload \<PAYLOAD\_NAME>set R
 
 msfconsole -qdb\_status\[\*] Connected to msf. Connection type: postgresql.workspace -hworkspace -hworkspace# current working workspace\* default
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-4a61e1886f17277cb003aacf2f3440eac7ef0e95%2Fimage-20230412183240012.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 * **Create** a new workspace
 
 workspace -a Test
 
-<figure><img src="https://2946054920-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FlhjuckuLbvBn36EoFL7P%2Fuploads%2Fgit-blob-be85ec5371caebed8520e55790ff55838c53b4fd%2Fimage-20230412183002282.png?alt=media" alt=""><figcaption></figcaption></figure>
+
 
 * **Change** workspace
 
