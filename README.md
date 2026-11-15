@@ -10,7 +10,7 @@ INE announced an updated eJPT exam and learning path on **March 26, 2026**. The 
 
 INE's certification page groups the exam into four weighted domains: **Assessment Methodologies (25%)**, **Host and Networking Auditing (25%)**, **Host and Network Penetration Testing (35%)**, and **Web Application Penetration Testing (15%)**.
 
-These notes combine earlier study material and should be treated as a practical foundation, **not as a complete substitute for the current INE learning path**. The web-application chapters cover scanning and directory discovery, including Gobuster and Nikto, plus an introductory CMS/WordPress workflow based on official WordPress and WPScan documentation. The repository does not yet cover the separate Offensive AI course; the CMS material still needs more hands-on validation against the current INE labs.
+These notes combine earlier study material and should be treated as a practical foundation, **not as a complete substitute for the current INE learning path**. The web-application chapters cover scanning and directory discovery, including Gobuster and Nikto, plus an introductory CMS/WordPress workflow based on official WordPress and WPScan documentation (including WPScan 4.x changes). The repository does not yet cover the separate Offensive AI course; the CMS material still needs more hands-on validation against the current INE labs.
 
 - [INE: eJPT certification and exam objectives](https://security.ine.com/certifications/ejpt-certification/)
 - [INE: March 2026 eJPT update announcement](https://ine.com/newsroom/ine-security-launches-updated-ejpt-certification-with-expanded-web-app-testing-recon-training-and-offensive-ai)
