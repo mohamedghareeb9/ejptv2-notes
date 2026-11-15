@@ -184,3 +184,10 @@ makerc /home/kali/certs/ejpt/resource\_scripts/portscan2.rc
 - [MSFvenom documentation](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
 - [Kali Metasploit package information](https://www.kali.org/tools/metasploit-framework/)
 - [MITRE ATT&CK: Phishing](https://attack.mitre.org/techniques/T1566/)
+
+
+## Resources
+
+- [MSFvenom documentation](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
+- [Kali Metasploit package information](https://www.kali.org/tools/metasploit-framework/)
+- [MITRE ATT&CK: Phishing](https://attack.mitre.org/techniques/T1566/)
