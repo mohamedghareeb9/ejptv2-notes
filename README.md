@@ -15,6 +15,18 @@ These notes combine earlier study material and should be treated as a practical 
 - [INE: eJPT certification and exam objectives](https://security.ine.com/certifications/ejpt-certification/)
 - [INE: March 2026 eJPT update announcement](https://ine.com/newsroom/ine-security-launches-updated-ejpt-certification-with-expanded-web-app-testing-recon-training-and-offensive-ai)
 
+## Visual guide
+
+These original diagrams are maintained in this repository and explain the overall workflow, network discovery, and web request lifecycle.
+
+![Authorized assessment workflow](assets/diagrams/assessment-workflow.svg)
+
+![Network discovery and enumeration](assets/diagrams/network-discovery.svg)
+
+![Web application request lifecycle](assets/diagrams/web-request-lifecycle.svg)
+
+See the [diagram style guide](assets/diagrams/README.md) for the visual conventions and source files.
+
 ## Start studying
 
 ### 1. Assessment Methodologies & Auditing
