@@ -1,7 +1,5 @@
 # Linux Foundations for Host-Based Testing
 
-**Source basis:** eJPTv2_Pr.pdf
-
 ## 1. Navigation and files
 ~~~bash
 pwd
