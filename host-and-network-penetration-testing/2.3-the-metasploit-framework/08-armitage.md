@@ -99,3 +99,10 @@ sudo apt install armitage -ysudo msfdb initsudo nano /etc/postgresql/15/main/pg\
 - [Armitage reference](https://www.offsec.com/metasploit-unleashed/armitage/)
 - [Armitage source repository](https://github.com/rsmudge/armitage)
 - [Metasploit documentation](https://docs.metasploit.com/)
+
+
+## Resources
+
+- [Armitage reference](https://www.offsec.com/metasploit-unleashed/armitage/)
+- [Armitage source repository](https://github.com/rsmudge/armitage)
+- [Metasploit documentation](https://docs.metasploit.com/)
