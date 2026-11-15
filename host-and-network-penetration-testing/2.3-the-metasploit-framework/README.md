@@ -1,15 +1,5 @@
-# 2.3 The Metasploit Framework (overview)
+# 2.3 The Metasploit Framework
 
-**Status:** ⬜ planned
+- [Metasploit workflow and core concepts](01-metasploit-workflow.md)
 
-## 1. How it works (from zero)
-
-## 2. The attacker's view
-
-## 3. Methodology
-
-## 4. Real CVEs & further reading
-
-## 5. Self-test
-
-## 6. Quick recap
+The workflow note covers module families, console navigation, workspaces, importing Nmap results, sessions, and Meterpreter concepts.
