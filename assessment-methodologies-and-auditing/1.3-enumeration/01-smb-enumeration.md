@@ -51,19 +51,19 @@ The following username and password may be used to access the service:
 
 \| Username | Password | | administrator | smbserver\_771 |
 
-<figure><img src="../https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-17-42.png" alt=""><figcaption><p>systeminfo</p></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-17-42.png" alt=""><figcaption><p>systeminfo</p></figcaption></figure>
 
 This is IP address of the machine with hostname "ATTACKER":
 
-<figure><img src="../https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-19-41.png" alt=""><figcaption><p>ifconfig</p></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-19-41.png" alt=""><figcaption><p>ifconfig</p></figcaption></figure>
 
 Run Nmap scan against the subnet to discover the target machine’s IP address.
 
 The target subnet is “255.255.240.0” hence we have mentioned CIDR to 20.
 
-<figure><img src="../https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-29-05.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-29-05.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="../https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-31-55.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 12-31-55.png" alt=""><figcaption></figcaption></figure>
 
 We see that hosts with IP: 10.2.22.92 and 10.2.25.111 have SMB open ports (139, 445).
 
@@ -81,7 +81,7 @@ to delete sharing files we use this command:
 
 <div align="left">
 
-<figure><img src="../https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/smb (1).gif" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/smb (1).gif" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -141,7 +141,7 @@ Host script results:
 
 <div align="left">
 
-<figure><img src="../https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 17-05-19.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 17-05-19.png" alt=""><figcaption></figcaption></figure>
 
 </div>
 
@@ -648,7 +648,7 @@ smbmap -u guest -p "" -d . -H 10.2.21.128
 smbmap -u administrator -p smbserver_771 -d . -H 10.2.21.128
 ```
 
-<figure><img src="../https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 17-20-52.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/Schermata del 2023-08-06 17-20-52.png" alt=""><figcaption></figcaption></figure>
 
 * Run a command using the smbmap `-x` option
 
