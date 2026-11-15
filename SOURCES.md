@@ -2,9 +2,6 @@
 
 This repository is an independent study resource. The chapters combine practical explanations, command examples, and workflows for learning penetration testing.
 
-## Related notes
-- [Earlier eJPTv2 notes archive](https://github.com/dev-angelist/eJPTv2-Notes) — additional examples, screenshots, and reference material.
-
 ## Official and primary documentation
 - [INE Certifications](https://ine.com/learning/certifications)
 - [Nmap Reference Guide](https://nmap.org/book/man.html)
@@ -18,5 +15,3 @@ This repository is an independent study resource. The chapters combine practical
 - [Microsoft Learn](https://learn.microsoft.com/)
 - [Linux man-pages](https://man7.org/linux/man-pages/)
 
-## How to use the references
-Use the notes as a learning path, then consult the relevant tool documentation for current syntax, supported options, and version-specific behavior. Validate techniques in a lab before using them in an authorized assessment.
