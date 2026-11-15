@@ -4,7 +4,7 @@
 
 **`nmap`** enumeration results (_service versions, operating systems, etc_) can be exported into a file that can be imported into MSF and used for further detection and exploitation.
 
-> 🔬 Check the full `nmap` information gathering lab in [this Nmap Host Discovery Lab](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/1-info-gathering#lab-with-nmap) (at the end of the page).
+>  Check the full `nmap` information gathering lab in [this Nmap Host Discovery Lab](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/1-info-gathering#lab-with-nmap) (at the end of the page).
 
 Some commands:nmap \<TARGET\_IP>nmap -Pn \<TARGET\_IP>nmap -Pn -sV -O \<TARGET\_IP>
 
@@ -40,7 +40,7 @@ MSF **Auxiliary modules** are used during the information gathering (similar to 
 
 **Lab Network Service Scanning**
 
-> 🔬 Lab [T1046 : Network Service Scanning](https://attackdefense.com/challengedetails?cid=1869)​
+>  Lab [T1046 : Network Service Scanning](https://attackdefense.com/challengedetails?cid=1869)​
 
 service postgresql start && msfconsole -qworkspace -a Port\_scansearch portscanuse auxiliary/scanner/portscan/tcpset RHOSTS 192.41.167.3runcurl 192.41.167.3
 
@@ -66,7 +66,7 @@ run autoroute -s 192.26.158.2backgroundsearch portscanuse auxiliary/scanner/port
 
 sessions 1upload /root/tools/static-binaries/nmap /tmp/nmapshell/bin/bash -icd /tmpchmod +x ./nmap./nmap -p- 192.26.158.321/tcp open ftp22/tcp open ssh80/tcp open http
 
-> 📌 There are **`3`** running services on the second target machine.
+>  There are **`3`** running services on the second target machine.
 
 **UDP Scan**
 
@@ -76,13 +76,13 @@ search udp\_sweepuse auxiliary/scanner/discovery/udp\_sweepset RHOSTS 192.41.167
 
 #### ​[Services Enumeration](https://www.offsec.com/metasploit-unleashed/service-identification/)​ <a href="#services-enumeration" id="services-enumeration"></a>
 
-> 📌🔬 Check the [Enumeration Section labs here](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration) for basic `nmap` enumeration.
+>  Check the [Enumeration Section labs here](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration) for basic `nmap` enumeration.
 
 Next, there are some MSF commands and modules for **service enumeration** on the same labs from the Enumeration Section.
 
 * Auxiliary modules can be used for enumeration, brute-force attacks, etc
 
-❗📝 **On every attacker machine, run this command to start `msfconsole`:**service postgresql start && msfconsole -q
+ **On every attacker machine, run this command to start `msfconsole`:**service postgresql start && msfconsole -q
 
 * Setup a **global variable**. This will set the RHOSTS option for all the modules utilized:
 
@@ -122,7 +122,7 @@ backsearch smb\_loginuse auxiliary/scanner/smb/smb\_loginoptionsset SMBUser admi
 
 **​**[**HTTP**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/http-enum#lab-3)**​**
 
-> 🔬 [Metasploit - Apache Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=118)​
+>  [Metasploit - Apache Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=118)​
 
 * Remember to specify the correct port and if targeting a web server with SSL enabled, in the options.
 
@@ -166,7 +166,7 @@ search robots\_txtuse auxiliary/scanner/http/robots\_txtoptionsrun\[+] Contents 
 
 **​**[**MYSQL**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/mysql-enum)**​**
 
-> 🔬 [Metasploit - MySQL Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=120)​
+>  [Metasploit - MySQL Enumeration Lab](https://www.attackdefense.com/challengedetails?cid=120)​
 
 ip -br -c asetg RHOSTS 192.64.22.3setg RHOST 192.64.22.3workspace -a MYSQL\_ENUM
 
@@ -202,7 +202,7 @@ hostsserviceslootcreds
 
 **​**[**SSH**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/ssh-enum)**​**
 
-> 🔬 [Metasploit - SSH Login](https://attackdefense.com/challengedetails?cid=1526)​
+>  [Metasploit - SSH Login](https://attackdefense.com/challengedetails?cid=1526)​
 
 ip -br -c asetg RHOSTS 192.127.196.3setg RHOST 192.127.196.3workspace -a SSH\_ENUM
 
@@ -224,7 +224,7 @@ search type:auxiliary name:sshuse auxiliary/scanner/ssh/ssh\_enumusersoptionsset
 
 **​**[**SMTP**](https://blog.syselement.com/ine/courses/ejpt/assessment-methodologies/3-enumeration/smtp-enum)**​**
 
-> 🔬 [SMTP - Postfix Recon: Basics](https://www.attackdefense.com/challengedetails?cid=516)​
+>  [SMTP - Postfix Recon: Basics](https://www.attackdefense.com/challengedetails?cid=516)​
 
 ip -br -c asetg RHOSTS 192.8.115.3setg RHOST 192.8.115.3workspace -a SMTP\_ENUM# Run a portscan to identify SMTP port, in this case is port 25
 
@@ -235,3 +235,10 @@ search type:auxiliary name:smtpuse auxiliary/scanner/smtp/smtp\_enumoptionsrun\[
 > **`auxiliary/scanner/smtp/smtp_version`**
 
 search type:auxiliary name:smtpuse auxiliary/scanner/smtp/smtp\_versionoptionsrun\[+] 192.8.115.3:25 - 192.8.115.3:25 SMTP 220 openmailbox.xyz ESMTP Postfix: Welcome to our mail server.\x0d\x0a
+
+
+## Resources
+
+- [Metasploit documentation](https://docs.metasploit.com/)
+- [Nmap Reference Guide](https://nmap.org/book/man.html)
+- [Metasploit database documentation](https://www.offsec.com/metasploit-unleashed/using-databases/)
