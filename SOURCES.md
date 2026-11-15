@@ -14,12 +14,12 @@
 |---|---|
 | OSINT, WHOIS, Netcraft, robots.txt, sitemaps, Wappalyzer/WhatWeb, DNS, subdomains, DNSRecon/DNSenum, Google dorks, theHarvester, HIBP | assessment-methodologies-and-auditing/1.1-information-gathering.md |
 | IP/MAC, ARP, ICMP, host discovery, port scanning | assessment-methodologies-and-auditing/1.2-footprinting-and-scanning.md |
-| SMB, FTP, SSH, HTTP, MySQL, SMTP enumeration | assessment-methodologies-and-auditing/1.3-enumeration/ |
+| SMB, FTP, SSH, HTTP, MySQL, SMTP, and SNMP enumeration | assessment-methodologies-and-auditing/1.3-enumeration/ |
 | CVE, NVD, CVSS, vulnerability checks and examples | assessment-methodologies-and-auditing/1.4-vulnerability-assessment.md |
 | Firewalls, IDS/IPS, endpoints, EDR, DHCP snooping, load balancers, cryptography | assessment-methodologies-and-auditing/1.5-auditing-fundamentals.md |
-| Linux navigation, files, permissions, processes, text tools, regex | host-and-network-penetration-testing/2.1-system-host-based-attacks/ |
-| TCP/UDP, DNS, ARP, routing, ASN/BGP, DHCP, sniffing, MITM concepts | host-and-network-penetration-testing/2.2-network-based-attacks.md |
-| Metasploit workflow | host-and-network-penetration-testing/2.3-the-metasploit-framework/ |
+| Linux navigation, files, permissions, processes, text tools, regex, Active Directory, Kerberos/NTLM, LDAP, GPO, AD attack concepts | host-and-network-penetration-testing/2.1-system-host-based-attacks/ |
+| TCP/UDP, DNS, ARP, routing, ASN/BGP, DHCP, sniffing, MITM, TLS/HTTPS concepts | host-and-network-penetration-testing/2.2-network-based-attacks.md |
+| Metasploit workflow, module families, sessions, Meterpreter concepts | host-and-network-penetration-testing/2.3-the-metasploit-framework/ |
 | HTTP workflow, directory discovery, directory traversal | web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md |
 
 ## Fidelity and review
