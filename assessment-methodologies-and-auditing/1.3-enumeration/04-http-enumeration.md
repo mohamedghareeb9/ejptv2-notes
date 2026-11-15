@@ -17,7 +17,7 @@ Here are some key aspects of HTTP:
    * POST: Submit data to be processed (e.g., submitting a form).
    * PUT: Update or create a resource.
    * DELETE: Remove a resource.
-8. **Security:** While HTTP itself is not secure and data transferred over it is sent in plaintext, HTTPS (HTTP Secure) provides a secure version of HTTP that uses encryption (SSL/TLS) to protect data in transit.
+8. **Security:** HTTP without TLS does not protect traffic confidentiality or integrity. HTTPS is HTTP carried over TLS; modern deployments should use current TLS configurations rather than the obsolete SSL protocols.
 
 HTTP forms the basis of web communication and interaction. When you access a website, your browser uses HTTP requests to fetch the web page's content, and the server responds with the requested data. Modern web applications often use more advanced technologies like AJAX, APIs, and WebSockets to enhance the interactive experience, but HTTP remains at the core of web communication.
 
@@ -27,12 +27,32 @@ HTTP forms the basis of web communication and interaction. When you access a web
 
 During HTTP enumeration, a tester or analyst might perform the following activities:
 
-1. **Banner Grabbing:** Accessing the web server and analyzing the HTTP response headers, also known as the "server banner," to identify the web server software and version in use. This information can help in understanding the server's characteristics and potential vulnerabilities associated with that specific software version.
+1. **Response Inspection:** Reviewing status codes, headers, cookies, redirects, and page content. The `Server` header may disclose software details, but it can be absent, modified, or misleading. This information can help in understanding the server's characteristics and potential vulnerabilities associated with that specific software version.
 2. **Directory Enumeration:** Attempting to identify accessible directories and paths on the web server. By making requests to different paths and observing the server's responses, testers can determine available directories, files, and potential sensitive information.
 3. **File Enumeration:** Trying to identify accessible files on the server by attempting to access various file extensions, such as `.txt`, `.php`, `.html`, etc. This can reveal valuable information, such as configuration files, backup files, and other sensitive data.
-4. **Robots.txt Analysis:** Checking the `robots.txt` file on the server to identify directories or paths that are explicitly disallowed from being crawled by search engines. This can sometimes provide insights into hidden or sensitive areas of the website.
-5. **Error Messages:** Analyzing error messages returned by the server when requesting non-existent pages or triggering errors. These messages can offer clues about the server's configuration and potentially reveal vulnerabilities.
+4. **Robots.txt Analysis:** Reviewing `/robots.txt` for paths that site operators ask crawlers not to index. These entries are public hints, not access controls, and should not be treated as proof that a path is sensitive or protected.
+5. **Error Messages:** Reviewing normal and error responses for unintended disclosure such as stack traces, filesystem paths, framework versions, or internal hostnames. Avoid deliberately causing disruptive errors.
 6. **HTTP Methods:** Testing various HTTP methods (e.g., GET, POST, PUT, DELETE) on different URLs to identify how the server responds and whether unauthorized actions can be performed.
 7. **Virtual Host Enumeration:** Identifying virtual hosts hosted on the same server, which can provide information about other websites hosted on the same IP address.
 8. **Cookies and Headers:** Analyzing cookies, headers, and other server responses to gather information about the website's functionality, technologies in use, and potential security weaknesses.
 
+
+
+## Practical checks
+
+For an authorized web host, begin with low-impact requests:
+
+```bash
+curl -sS -D - -o /dev/null https://<AUTHORIZED_HOST>/
+curl -sS https://<AUTHORIZED_HOST>/robots.txt
+nmap -p80,443 -sV --script http-title,http-headers <AUTHORIZED_HOST>
+```
+
+For content discovery, use a small, approved wordlist and a conservative request rate. Confirm findings manually: a `200` response does not always mean a real page exists, and custom error pages can produce misleading results.
+
+## Resources
+
+- [MDN: HTTP overview](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+- [MDN: HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
+- [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
+- [Nmap HTTP scripts](https://nmap.org/nsedoc/categories/http.html)
