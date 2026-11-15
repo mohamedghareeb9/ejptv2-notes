@@ -10,7 +10,7 @@ INE announced an updated eJPT exam and learning path on **March 26, 2026**. The 
 
 INE's certification page groups the exam into four weighted domains: **Assessment Methodologies (25%)**, **Host and Networking Auditing (25%)**, **Host and Network Penetration Testing (35%)**, and **Web Application Penetration Testing (15%)**.
 
-These notes combine earlier study material and should be treated as a practical foundation, **not as a complete substitute for the current INE learning path**. The web-application chapter already introduces scanning and directory discovery, but dedicated CMS/WordPress coverage and the newer Offensive AI material still need to be developed and checked against the current course.
+These notes combine earlier study material and should be treated as a practical foundation, **not as a complete substitute for the current INE learning path**. The web-application chapter already introduces scanning and directory discovery, and [3.2 CMS and WordPress Security Testing](web-application-penetration-testing/3.2-cms-and-wordpress-testing.md) adds an introductory workflow based on official WordPress and WPScan documentation. The repository does not yet cover the separate Offensive AI course, and the CMS material should be expanded alongside the current INE labs.
 
 - [INE: eJPT certification and exam objectives](https://security.ine.com/certifications/ejpt-certification/)
 - [INE: March 2026 eJPT update announcement](https://ine.com/newsroom/ine-security-launches-updated-ejpt-certification-with-expanded-web-app-testing-recon-training-and-offensive-ai)
@@ -34,6 +34,7 @@ These notes combine earlier study material and should be treated as a practical 
 
 ### 3. Web Application Penetration Testing
 - [3.1 Introduction to Web Application Pentesting](web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md)
+- [3.2 CMS and WordPress Security Testing](web-application-penetration-testing/3.2-cms-and-wordpress-testing.md)
 
 ## Quick reference
 - [eJPT Command Cheat Sheet](CHEAT-SHEET.md)
