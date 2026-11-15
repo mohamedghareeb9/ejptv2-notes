@@ -1,5 +1,7 @@
 # Web Application Penetration Testing
 
+![Web application request lifecycle](../assets/diagrams/web-request-lifecycle.svg)
+
 - [3.1 Introduction to Web Application Pentesting](3.1-intro-to-web-app-pentesting.md)
 - [3.2 CMS and WordPress Security Testing](3.2-cms-and-wordpress-testing.md)
 
