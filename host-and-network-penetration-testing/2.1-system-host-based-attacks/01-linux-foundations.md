@@ -56,7 +56,7 @@ tail -f /var/log/auth.log
 grep -i "failed" /var/log/auth.log
 find /home -type f -name "*.txt"
 find /home -type d -name "projects"
-find /path -type f -exec grep -l "needle" {} \\;
+find /path -type f -exec grep -l "needle" {} +
 ~~~
 
 ## 4. Regular expressions
@@ -188,8 +188,8 @@ The notes also demonstrate actions on matches:
 
 ~~~bash
 find . -name "*.tmp" -delete
-find . -name "*.sh" -exec chmod +x {} \\\;
-find /path -type f -exec grep -l "needle" {} \\\;
+find . -name "*.sh" -exec chmod +x {} +
+find /path -type f -exec grep -l "needle" {} +
 ~~~
 
 Review the matched paths before using deletion or bulk modification options.
