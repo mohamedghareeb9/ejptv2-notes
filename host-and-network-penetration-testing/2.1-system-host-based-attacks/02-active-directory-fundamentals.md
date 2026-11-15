@@ -1,6 +1,6 @@
 # Active Directory Fundamentals
 
-**Source basis:** eJPTv2_Pr.pdf, Active Directory section  
+
 **Focus:** recognize the core directory concepts and the attack paths named in the study notes.
 
 ## 1. What Active Directory is
@@ -22,7 +22,7 @@ A **Domain Controller (DC)** hosts AD services and participates in domain authen
 
 **OU is not the same as a group.** An OU organizes directory objects and can have policy linked to it; a security group is commonly used to assign permissions.
 
-The source notes distinguish:
+Key distinctions:
 - **Security groups:** used for permissions.
 - **Distribution groups:** used for email distribution rather than granting access permissions.
 
@@ -54,9 +54,9 @@ The effective result depends on policy inheritance, links, enforcement, and conf
 
 AD relies heavily on DNS to locate domain controllers and domain services. If clients cannot resolve the relevant AD DNS records, domain operations and authentication discovery can fail.
 
-## 6. Attack concepts named in the source notes
+## 6. Common Active Directory attack concepts
 
-The practical PDF lists these concepts at recognition level:
+The following concepts are useful to recognize:
 
 | Concept | High-level idea |
 |---|---|
