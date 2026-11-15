@@ -1,15 +1,13 @@
-# 2.1 System / Host-Based Attacks (overview)
+# 2.1 System / Host-Based Attacks
 
-**Status:** ⬜ planned
+This folder contains host-side foundations from the practical study PDF.
 
-## 1. How it works (from zero)
+## Notes
+- [Linux foundations](01-linux-foundations.md) — filesystem navigation, common commands, pipelines, text processing, regex, permissions, processes, help, and package management.
+- [Active Directory fundamentals](02-active-directory-fundamentals.md) — domains, Domain Controllers, users/computers, groups, OUs, GPO, NTLM, Kerberos, LDAP, DNS, and common attack concepts.
 
-## 2. The attacker's view
-
-## 3. Methodology
-
-## 4. Real CVEs & further reading
-
-## 5. Self-test
-
-## 6. Quick recap
+## Study sequence
+1. Become comfortable navigating Linux and reading files.
+2. Understand permissions and process visibility.
+3. Learn Windows domain and identity concepts.
+4. Practice enumeration only in a lab or explicitly authorized environment.
