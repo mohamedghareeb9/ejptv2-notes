@@ -309,7 +309,7 @@ gzip -d /usr/share/wordlists/rockyou.txt.gz
 hydra -l admin -P /usr/share/wordlists/rockyou.txt <TARGET_IP> smb
 ```
 
-We can use a wordlist generator tools (how [Cewl](http://127.0.0.1:5000/s/iS3hadq7jVFgSa8k5wRA/pratical-ethical-hacker-notes/cewl)), to create custom wordlists.
+We can use a wordlist generator tools (how [CeWL](https://github.com/digininja/CeWL)), to create custom wordlists.
 
 #### Metasploit
 
@@ -1274,7 +1274,6 @@ background    #Switch from a Meterpreter session to the msfconsole command line
 cat
 cd
 checksum md5 /bin/bash
-clearev
 download Filename /root/****   #Download From victm machine to your machine 
 edit
 execute -f ifconfig
@@ -2859,28 +2858,12 @@ db_nmap -sS -sV -p <LOCAL_PORT> localhost
 
 ```
 
-### Clearing Tracks
+### Cleanup and evidence preservation
 
-```bash
-# Windows C:\Temp - Metasploit e.g.
-cd C:\\
-mkdir Temp
-cd Temp # Clean this C:\Temp directory
-
-## Cleanup Meterpreter RC File:
-cat /root/.msf4/logs/persistence/<CLEANING_SCRIPT>.rc
-background
-sessions 1
-resource /root/.msf4/logs/persistence/<CLEANING_SCRIPT>.rc
-run multi_console_command -r /root/.msf4/logs/scripts/getgui/<CLEANING_SCRIPT>.rc
-
-clearenv
-
-# Linux /tmp
-cd /tmp
-history -c
-cat /dev/null > ~/.bash_history
-```
+- Keep a record of files and configuration changes created during testing.
+- Remove only test artifacts that the rules of engagement authorize you to remove.
+- Preserve system event logs and shell history; do not erase evidence to conceal activity.
+- Verify cleanup with the system owner and document anything that could not be reverted.
 
 ## Social Engineering
 
