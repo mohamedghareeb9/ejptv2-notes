@@ -3124,19 +3124,15 @@ curl https://victim.com/ | grep 'content="WordPress'
 
 * Meta name
 
-<div align="left">
-
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%283%29.png" alt=""><figcaption></figcaption></figure>
-
-</div>
+**Where to look:** inspect the page source or response headers for generator metadata such as `<meta name="generator">`, then corroborate it with asset paths and application behavior.
 
 * CSS link files
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%284%29.png" alt=""><figcaption></figcaption></figure>
+CSS files can expose theme names, framework versions, and asset directory conventions. Treat these as clues, not proof of a specific CMS version.
 
 * JavaScript files
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%285%29.png" alt=""><figcaption></figcaption></figure>
+JavaScript bundles and source maps may disclose application routes, dependencies, build metadata, and API paths. Review them without assuming every discovered route is in scope.
 
 #### Get Plugins
 
@@ -3319,19 +3315,15 @@ In older versions of Drupal **(before version 8)**, it was possible to log in as
 
 You need the **plugin php to be installed** (check it accessing to _/modules/php_ and if it returns a **403** then, **exists**, if **not found**, then the **plugin php isn't installed**)
 
-Go to _Modules_ -> (**Check**) _PHP Filter_ -> _Save configuration_
+In an intentionally vulnerable, isolated legacy Drupal lab, the historical PHP Filter workflow involved enabling the module and selecting PHP as the text format. This is an obsolete, unsafe configuration and must not be enabled on a production system.
 
 <figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%286%29.png" alt=""><figcaption></figcaption></figure>
 
-Then click on _Add content_ -> Select _Basic Page_ or _Article -_> Write _php shellcode on the body_ -> Select _PHP code_ in _Text format_ -> Select _Preview_
+For defensive validation, verify whether the legacy PHP Filter module exists and whether untrusted users can select executable PHP text formats. Do not create executable content on a live site.
 
 <figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%287%29.png" alt=""><figcaption></figcaption></figure>
 
-Finally just access the newly created node:
-
-```bash
-curl http://drupal-site.local/node/3
-```
+A safe assessment records the module state, permitted roles, and text-format permissions, then recommends disabling the legacy feature and restricting executable formats.
 
 #### Install PHP Filter Module
 
