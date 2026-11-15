@@ -27,17 +27,17 @@ Key features and components of Metasploit Framework include:
 | **Payload**       | Piece of code delivered to the target by an exploit (execute arbitrary commands or provide remote access) |
 | **Listener**      | Utility that listens for an incoming connection from a target                                             |
 
-> 📌 **Exploit** is launched (takes advantage of the vulnerability) ➡️ **Payload** dropped (executes a reverse shell command) ➡️ Connects back to the **Listener**
+>  **Exploit** is launched (takes advantage of the vulnerability)  **Payload** dropped (executes a reverse shell command)  Connects back to the **Listener**
 
 ## Interfaces <a href="#interfaces" id="interfaces"></a>
 
-🗒️ **Metasploit Framework Console** ([**MSFconsole**](https://www.offsec.com/metasploit-unleashed/msfconsole/)) - an all in one interface that provides with access to all the functionality of the MSF.msfconsole🗒️ **Metasploit Framework Command Line Interface** ([**MSFcli**](https://www.offsec.com/metasploit-unleashed/msfcli/)) - a command line utility used to facilitate the creation of automation scripts that utilize Metasploit modules.
+ **Metasploit Framework Console** ([**MSFconsole**](https://www.offsec.com/metasploit-unleashed/msfconsole/)) - an all in one interface that provides with access to all the functionality of the MSF.msfconsole **Metasploit Framework Command Line Interface** ([**MSFcli**](https://www.offsec.com/metasploit-unleashed/msfcli/)) - a command line utility used to facilitate the creation of automation scripts that utilize Metasploit modules.
 
 
 
 * Discontinued in 2015, MSFconsole can be used with the same functionality of _redirecting output from other tools into `msfcli` and vice versa._
 
-🗒️ **Metasploit Community Edition GUI** - a web based GUI front-end of the MSF.🗒️ [**Armitage**](https://www.kali.org/tools/armitage/) - a free Java based GUI front-end cyber attack management tool for the MSF.
+ **Metasploit Community Edition GUI** - a web based GUI front-end of the MSF. [**Armitage**](https://www.kali.org/tools/armitage/) - a free Java based GUI front-end cyber attack management tool for the MSF.
 
 * Visualizes targets and simplifies network discovery
 * Recommends exploits
@@ -45,7 +45,7 @@ Key features and components of Metasploit Framework include:
 
 ## ​[Architecture](https://www.offsec.com/metasploit-unleashed/metasploit-architecture/)​ <a href="#architecture" id="architecture"></a>
 
-Metasploit Framework Architecture - oreilly.com🗒️ A **module** is the piece of code that can be utilized and executed by the MSF.The MSF **libraries** (Rex, Core, Base) allow to extend and initiate functionality, facilitating the execution of modules without having to write additional code.
+Metasploit Framework Architecture - oreilly.com A **module** is the piece of code that can be utilized and executed by the MSF.The MSF **libraries** (Rex, Core, Base) allow to extend and initiate functionality, facilitating the execution of modules without having to write additional code.
 
 
 
@@ -70,7 +70,7 @@ Metasploit Framework Architecture - oreilly.com🗒️ A **module** is the piece
     * executes arbitrary commands on the target
     * provides a reverse shell or Meterpreter session
 
-🗒️ The [**Meterpreter**](https://www.offsec.com/metasploit-unleashed/about-meterpreter/) is an advanced multi-functional payload executed by in memory DLL injection stagers on the target system.
+ The [**Meterpreter**](https://www.offsec.com/metasploit-unleashed/about-meterpreter/) is an advanced multi-functional payload executed by in memory DLL injection stagers on the target system.
 
 * Communicates over the stager socket
 * Provides an interactive command interpreter on the target system
@@ -92,16 +92,16 @@ ls /usr/share/metasploit-frameworkls /usr/share/metasploit-framework
 
 ## Pentesting with MSF <a href="#pentesting-with-msf" id="pentesting-with-msf"></a>
 
-🗒️ [**PTES**](http://www.pentest-standard.org/index.php/Main\_Page) (**P**enetration **T**esting **E**xecution **S**tandard) is a methodology that contains 7 main sections, defined by the standard as a comprehensive basis for penetration testing execution.
+ [**PTES**](http://www.pentest-standard.org/index.php/Main\_Page) (**P**enetration **T**esting **E**xecution **S**tandard) is a methodology that contains 7 main sections, defined by the standard as a comprehensive basis for penetration testing execution.
 
 * can be adopted as a roadmap for Metasploit integration and understanding of the phases of a penetration test.
 
-> The various phases involved in a typical pentest should be:📌 **Pre-Engagement Interactions**⬇️📌 **Information Gathering**⬇️📌 **Enumeration**
+> The various phases involved in a typical pentest should be: **Pre-Engagement Interactions** **Information Gathering** **Enumeration**
 >
 > * Threat Modeling
 > * Vulnerability Analysis
 >
-> ⬇️📌 **Exploitation**
+>  **Exploitation**
 >
 > * Identify Vulnerable Services
 > * Prepare Exploit Code
@@ -109,13 +109,13 @@ ls /usr/share/metasploit-frameworkls /usr/share/metasploit-framework
 > * Bypass AV detection
 > * Pivoting
 >
-> ⬇️📌 **Post Exploitation**
+>  **Post Exploitation**
 >
 > * Privilege Escalation
 > * Maintaining Persistent Access
 > * Clearing Tracks
 >
-> ⬇️📌 **Reporting**
+>  **Reporting**
 
 | Pentesting Phase                        | MSF Implementation                     |
 | --------------------------------------- | -------------------------------------- |
@@ -134,7 +134,7 @@ PTES - infopulse.com
 
 ### ​[Database](https://www.offsec.com/metasploit-unleashed/using-databases/)​ <a href="#database" id="database"></a>
 
-🗒️ The **Metasploit Framework Database** (**msfdb**) contains all the data used with MSF like assessments and scans data, etc.
+ The **Metasploit Framework Database** (**msfdb**) contains all the data used with MSF like assessments and scans data, etc.
 
 * Uses PostgreSQL as the primary database - `postgresql` service must be running
 * Facilitates the import and storage of scan results (from Nmap, Nessus, other tools)
@@ -157,7 +157,7 @@ msfconsole
 
 db\_status
 
-> 📌 Check this article by StationX ➡️ [How to Use Metasploit in Kali Linux + Metasploitable3](https://www.stationx.net/how-to-use-metasploit-in-kali-linux/) which will cover:
+>  Check this article by StationX  [How to Use Metasploit in Kali Linux + Metasploitable3](https://www.stationx.net/how-to-use-metasploit-in-kali-linux/) which will cover:
 >
 > * Deploying a Kali Linux virtual machine with Metasploit pre-installed
 > * Setting up a target in a virtual lab, Metasploitable3, with Vagrant
@@ -166,7 +166,7 @@ db\_status
 
 ### ​[MSFConsole](https://www.offsec.com/metasploit-unleashed/msfconsole/)​ <a href="#msfconsole" id="msfconsole"></a>
 
-🗒️ The **Metasploit Framework Console** (**msfconsole**) is an all-in-one interface and centralized console that allows access to all of the MSF options and features.
+ The **Metasploit Framework Console** (**msfconsole**) is an all-in-one interface and centralized console that allows access to all of the MSF options and features.
 
 * It is launched by running the `msfconsole` command
 
@@ -218,13 +218,13 @@ search eternalblueuse 0# specify the identifierset payload \<PAYLOAD\_NAME>set R
 
 #### ​[Workspaces](https://docs.rapid7.com/metasploit/managing-workspaces/)​ <a href="#workspaces" id="workspaces"></a>
 
-🗒️ Metasploit **Workspaces** allows to manage and organize the hosts, data, scans and activities stored in the `msfdb`.
+ Metasploit **Workspaces** allows to manage and organize the hosts, data, scans and activities stored in the `msfdb`.
 
 * Import, manipulate, export data
 * Create, manage, switch between workspaces
 * Sort and organize the assessments of the penetration test
 
-> 📌 _It's recommended to create a new workspace for each engagement._
+>  _It's recommended to create a new workspace for each engagement._
 
 msfconsole -qdb\_status\[\*] Connected to msf. Connection type: postgresql.workspace -hworkspace -hworkspace# current working workspace\* default
 
@@ -243,3 +243,10 @@ workspace \<WORKSPACE\_NAME>workspace -a INE
 * **Delete** a workspace
 
 workspace -d Test
+
+
+## Resources
+
+- [Metasploit documentation](https://docs.metasploit.com/)
+- [Metasploit Framework source repository](https://github.com/rapid7/metasploit-framework)
+- [Metasploit Unleashed](https://www.offsec.com/metasploit-unleashed/)
