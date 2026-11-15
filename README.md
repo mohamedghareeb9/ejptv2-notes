@@ -4,6 +4,15 @@ A practical, organized study guide for the **eLearnSecurity Junior Penetration T
 
 The notes are organized around the main study domains and include foundational concepts, reconnaissance, enumeration, vulnerability assessment, host and network testing, Metasploit, post-exploitation, and web application testing.
 
+## Current exam-version note
+
+INE announced an updated eJPT exam and learning path on **March 26, 2026**. The announcement describes an expansion from 35 to 45 exam questions while retaining the 48-hour practical format, additional training on target scoping and passive versus active reconnaissance, and expanded web application material covering Nikto, file and directory discovery (including Gobuster), CMS security fundamentals, and WordPress security testing and exploitation. INE also introduced a separate **Offensive AI: Generative AI for Pentesters** course.
+
+These notes combine earlier study material and should be treated as a practical foundation, **not as a complete substitute for the current INE learning path**. The web-application chapter already introduces scanning and directory discovery, but dedicated CMS/WordPress coverage and the newer Offensive AI material still need to be developed and checked against the current course.
+
+- [INE: eJPT certification and exam objectives](https://security.ine.com/certifications/ejpt-certification/)
+- [INE: March 2026 eJPT update announcement](https://ine.com/newsroom/ine-security-launches-updated-ejpt-certification-with-expanded-web-app-testing-recon-training-and-offensive-ai)
+
 ## Start studying
 
 ### 1. Assessment Methodologies & Auditing
