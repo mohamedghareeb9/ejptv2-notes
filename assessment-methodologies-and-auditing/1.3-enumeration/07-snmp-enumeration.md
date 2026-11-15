@@ -1,6 +1,6 @@
 # SNMP Enumeration
 
-**Source basis:** eJPTv2.pdf, SNMP section. Query only authorized devices.
+**Scope:** Query only authorized devices.
 
 ## 1. What SNMP is
 Simple Network Management Protocol (SNMP) is used to monitor and manage network devices such as routers, switches, printers, and servers. Administrators may use it to read device status and configuration information. Depending on configuration and permissions, management operations may also change device settings.
