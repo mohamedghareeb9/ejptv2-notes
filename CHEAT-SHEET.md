@@ -1,6 +1,6 @@
 > **Use responsibly:** These commands are quick references for authorized labs and assessments. Confirm the target and scope before scanning, enumerating, or exploiting. Some commands can be disruptive or expose sensitive information.
 
-# 📔 eJPT Cheat Sheet
+# eJPT Cheat Sheet
 
 ## Networking
 
