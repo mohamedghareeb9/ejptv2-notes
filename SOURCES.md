@@ -13,6 +13,9 @@ This repository is an independent study resource. The chapters combine practical
 - [WordPress Security and Hardening](https://developer.wordpress.org/advanced-administration/security/)
 - [WPScan User Documentation](https://github.com/wpscanteam/wpscan/wiki/WPScan-User-Documentation)
 - [WPScan 4.0 release announcement (May 2026)](https://wpscan.com/blog/wpscan-4-0-0-were-back/)
+- [Gobuster documentation](https://github.com/OJ/gobuster)
+- [Nikto documentation](https://github.com/sullo/nikto)
+- [Gophish documentation](https://docs.getgophish.com/)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
 - [MITRE CVE](https://www.cve.org/)
@@ -81,6 +84,6 @@ Page numbers below refer to the two supplied study PDFs in their original upload
 
 ### Known coverage gaps
 
-The sources and current public exam announcement support the topics mapped above. The repository still needs more hands-on, lab-verified walkthroughs for the newer CMS/WordPress topics, more worked examples for some network and cryptography concepts, and a current practical validation pass across tool commands and screenshots. The separate Offensive AI course is not treated as a core exam domain here; it should remain supplementary unless the official exam objectives change.
+The sources and current public exam announcement support the topics mapped above. The repository still needs more hands-on, lab-verified walkthroughs for the newer CMS/WordPress topics, more worked examples for some network and cryptography concepts, and a current practical validation pass across tool commands and screenshots. Some legacy screenshots are still loaded from external GitBook CDN URLs; those URLs could not be independently verified in this audit and should be migrated to repository-local assets. The older author's raw GitHub asset links point to files present in the old repository's public asset tree, but they remain a cross-repository dependency. The separate Offensive AI course is not treated as a core exam domain here; it should remain supplementary unless the official exam objectives change.
 
 The source material is not a substitute for the current official exam objectives. See the INE certification page and March 2026 update announcement above for the current learning-path and exam information.
