@@ -26,7 +26,7 @@ SSH is commonly used on Unix-like systems (including Linux and macOS), but there
 During SSH enumeration, a tester or analyst might perform the following activities:
 
 1. **Banner Grabbing:** Connecting to the SSH server and analyzing the initial response, known as the banner, to identify the SSH server software and version being used. This information can help in understanding the server's characteristics and vulnerabilities associated with that specific software version.
-2. **User Enumeration:** Attempting to identify valid user accounts on the SSH server by trying different usernames and observing the server's responses. This can help in determining valid accounts for further exploitation.
+2. **User Enumeration:** Some server configurations or versions may reveal account validity through differences in responses or timing, but modern SSH servers commonly reduce these differences. Do not assume username enumeration is reliable.
 3. **Authentication Methods:** Identifying the authentication methods supported by the SSH server. This can include password-based authentication, public key authentication, and potentially other methods like two-factor authentication (2FA).
 4. **Public Key Fingerprinting:** Gathering public key fingerprints associated with the server's authorized keys. This information can be used to verify the authenticity of the server and detect potential man-in-the-middle attacks.
 5. **Supported Algorithms:** Determining the cryptographic algorithms supported by the SSH server for encryption, key exchange, and authentication. This information can reveal the security posture of the server.
@@ -34,3 +34,22 @@ During SSH enumeration, a tester or analyst might perform the following activiti
 7. **Host Key:** Gathering information about the SSH server's host key, which is used for verifying the authenticity of the server during the initial connection.
 8. **Banner Information:** Analyzing the SSH banner for any indications of misconfiguration or potential vulnerabilities.
 
+
+
+## Practical checks
+
+Run these checks only against an in-scope SSH service:
+
+```bash
+nmap -p22 -sV --script ssh-hostkey,ssh2-enum-algos <AUTHORIZED_HOST>
+ssh -vv user@<AUTHORIZED_HOST>
+```
+
+The Nmap scripts report host-key fingerprints and supported algorithms. The verbose SSH client output helps diagnose negotiation and authentication behavior; it does not bypass authentication.
+
+## Resources
+
+- [OpenSSH manual pages](https://www.openssh.com/manual.html)
+- [OpenSSH release notes](https://www.openssh.com/releasenotes.html)
+- [Nmap ssh-hostkey script](https://nmap.org/nsedoc/scripts/ssh-hostkey.html)
+- [Nmap ssh2-enum-algos script](https://nmap.org/nsedoc/scripts/ssh2-enum-algos.html)
