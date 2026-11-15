@@ -26,5 +26,6 @@ This matters because almost every later phase (vulnerability research, exploitat
 - [HTTP](04-http-enumeration.md)
 - [MySQL](05-mysql-enumeration.md)
 - [SMTP](06-smtp-enumeration.md)
+- [SNMP](07-snmp-enumeration.md)
 
 Each uses both manual tools and Metasploit auxiliary modules (`msfconsole`), since both show up on the exam and in real engagements.
