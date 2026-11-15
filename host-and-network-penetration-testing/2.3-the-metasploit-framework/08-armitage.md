@@ -2,7 +2,7 @@
 
 ## ​[Armitage](https://www.offsec.com/metasploit-unleashed/armitage/) - MSF GUI <a href="#armitage-msf-gui" id="armitage-msf-gui"></a>
 
-🗒️ **Armitage** is a graphical user interface (GUI) for the Metasploit Framework, a widely used penetration testing and ethical hacking tool. Armitage provides a user-friendly interface for interacting with Metasploit's powerful features, making it easier for cybersecurity professionals to perform tasks related to network penetration testing, vulnerability assessment, and exploit development.
+ **Armitage** is a graphical user interface (GUI) for the Metasploit Framework, a widely used penetration testing and ethical hacking tool. Armitage provides a user-friendly interface for interacting with Metasploit's powerful features, making it easier for cybersecurity professionals to perform tasks related to network penetration testing, vulnerability assessment, and exploit development.
 
 Some key features of Armitage include:
 
@@ -11,7 +11,7 @@ Some key features of Armitage include:
 3. **Session Management:** Armitage allows users to manage active sessions and connections to compromised systems, which is crucial for post-exploitation tasks.
 4. **Reporting:** Users can generate reports detailing their penetration testing activities and findings.
 
-> 🔬 **Port Scanning & Enumeration With Armitage** - lab by INE
+>  **Port Scanning & Enumeration With Armitage** - lab by INE
 >
 > * Victim Machine 1: `10.2.21.86`
 > * Victim Machine 2: `10.2.25.150`
@@ -92,3 +92,10 @@ Administrator:500:aad3b435b51404eeaad3b435b51404ee:5c4d59391f656d5958dab124ffeab
 #### Armitage Kali Linux Install <a href="#armitage-kali-linux-install" id="armitage-kali-linux-install"></a>
 
 sudo apt install armitage -ysudo msfdb initsudo nano /etc/postgresql/15/main/pg\_hba.conf# On line 87 switch “scram-sha-256” to “trust”sudo systemctl enable postgresqlsudo systemctl restart postgresqlsudo armitage
+
+
+## Resources
+
+- [Armitage reference](https://www.offsec.com/metasploit-unleashed/armitage/)
+- [Armitage source repository](https://github.com/rsmudge/armitage)
+- [Metasploit documentation](https://docs.metasploit.com/)
