@@ -44,16 +44,34 @@ enum4linux -a <target>             # all-in-one SMB enumeration (users, shares, 
 
 A finding worth specifically checking for: whether **anonymous/guest access** is allowed at all (`smbclient -L //target/ -N` succeeding with no credentials is the quickest signal).
 
-## 4. Real CVEs
+### NetBIOS, null sessions, and RID enumeration
+The source PDF explains the historical relationship between NetBIOS and SMB:
+- NetBIOS over TCP/IP commonly uses UDP 137 for name service, UDP 138 for datagrams, and TCP 139 for session service.
+- Modern SMB can run directly over TCP 445 without a NetBIOS session.
+- The source notes use the Windows command `nbtstat` to inspect NetBIOS information.
+
+A **null session** is an unauthenticated SMB/RPC connection that may expose information on a misconfigured or legacy Windows host. The source describes connecting to the IPC$ administrative share and querying information without supplying a username/password. This behavior is not guaranteed on modern, hardened systems.
+
+Tools and examples named in the source:
+
+~~~bash
+smbclient -L //<target>/ -N
+rpcclient -N -U "" <target>
+enum4linux -a <target>
+~~~
+
+The source says enum4linux can organize target information, workgroup/domain, Domain SID, OS details, users, shares, password policy, groups, user SIDs, and printer information. The notes also describe **RID cycling**: querying candidate Relative Identifier values appended to a known domain SID to discover account names where the server permits such enumeration. Treat any discovered account information as sensitive and stay within scope.
+
+## 5. Real CVEs
 
 - **MS17-010 / EternalBlue (CVE-2017-0144)** — SMBv1 remote code execution; see 1.4 for the full case study and detection script.
 
-## 5. Self-test
+## 6. Self-test
 
 1. What does it mean practically if a target has 139 open but not 445, versus the reverse?
 2. Why check for anonymous/null sessions before trying any password list?
 3. What is `enum4linux` actually doing that `smb_version` alone doesn't?
 
-## 6. Quick recap
+## 7. Quick recap
 
 SMB/Samba is chattier than most protocols by design — version, usernames, and shares often leak before you've authenticated at all. Check anonymous access first, then enumerate, then attempt logins.
