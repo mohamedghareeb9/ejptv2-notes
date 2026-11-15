@@ -361,3 +361,12 @@ root@attackdefense:~# cat flag
 `c07c7a9be16f43bb473ed7b604295c0b`
 
 </details>
+
+
+## Resources
+
+- [ProFTPD documentation](http://www.proftpd.org/docs/)
+- [vsftpd documentation](https://security.appspot.com/vsftpd.html)
+- [Nmap FTP scripts](https://nmap.org/nsedoc/categories/ftp.html)
+- [RFC 959: File Transfer Protocol](https://www.rfc-editor.org/rfc/rfc959)
+- [RFC 4217: Securing FTP with TLS](https://www.rfc-editor.org/rfc/rfc4217)
