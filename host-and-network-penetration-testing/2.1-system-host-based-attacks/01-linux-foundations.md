@@ -137,7 +137,7 @@ sudo dpkg -i <package.deb>
 - dpkg installs a local Debian package; dependency repair may be needed separately.
 
 ## 8. Privilege context
-The source notes introduce sudo su to open a root shell and exit to leave it. Prefer the least privilege needed. Running a whole session as root increases the impact of mistakes.
+Use `sudo su` to open a root shell and `exit` to leave it. Prefer the least privilege needed. Running a whole session as root increases the impact of mistakes.
 
 ## 9. Self-check
 1. Difference between an absolute and relative path?
@@ -149,7 +149,7 @@ The source notes introduce sudo su to open a root shell and exit to leave it. Pr
 7. Difference between APT and dpkg?
 
 ## 10. Vim essentials
-The practical PDF introduces Vim as a modal editor.
+Vim is a modal text editor.
 
 | Mode | Purpose |
 |---|---|
@@ -182,7 +182,7 @@ find . -mtime -1
 find . -perm 777
 ~~~
 
-The source's memory rule is: `locate` is fast because it searches a database and may be stale; `find` searches the filesystem and is more current but can be slower. The locate database can be refreshed with updatedb.
+Remember: `locate` is fast because it searches a database and may be stale; `find` searches the filesystem and is more current but can be slower. The locate database can be refreshed with updatedb.
 
 The notes also demonstrate actions on matches:
 
@@ -210,7 +210,7 @@ tar -tvf archive.tar.gz
 unzip -l archive.zip
 ~~~
 
-Tar flags from the source notes: c=create, x=extract, v=verbose, f=archive filename, z=gzip, j=bzip2, and J=xz. Single-file compressors such as gzip, bzip2, and xz commonly replace the original file with the compressed version; check the command behavior before using it on important data.
+Tar flags: c=create, x=extract, v=verbose, f=archive filename, z=gzip, j=bzip2, and J=xz. Single-file compressors such as gzip, bzip2, and xz commonly replace the original file with the compressed version; check the command behavior before using it on important data.
 
 ## 13. Additional self-check
 1. Why does Vim start in Normal mode?
@@ -233,7 +233,7 @@ The practical notes also list these advanced patterns, with support depending on
 | foo(?=bar) | Lookahead example: match foo when followed by bar |
 | (?:foo|bar) | Non-capturing group |
 
-Examples from the source use PCRE mode with grep:
+Examples using PCRE mode with grep:
 
 ~~~bash
 grep -P "(?<=foo)bar" file.txt
