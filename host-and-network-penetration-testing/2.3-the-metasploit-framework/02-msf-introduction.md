@@ -250,3 +250,10 @@ workspace -d Test
 - [Metasploit documentation](https://docs.metasploit.com/)
 - [Metasploit Framework source repository](https://github.com/rapid7/metasploit-framework)
 - [Metasploit Unleashed](https://www.offsec.com/metasploit-unleashed/)
+
+
+## Resources
+
+- [Metasploit documentation](https://docs.metasploit.com/)
+- [Metasploit Framework source repository](https://github.com/rapid7/metasploit-framework)
+- [Metasploit Unleashed](https://www.offsec.com/metasploit-unleashed/)
