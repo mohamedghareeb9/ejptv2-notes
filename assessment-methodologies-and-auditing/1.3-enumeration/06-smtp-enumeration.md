@@ -18,7 +18,7 @@ Key features and aspects of SMTP include:
 5. **SMTP Relay:** SMTP relay refers to the process of forwarding an email from one mail server to another to ensure proper delivery across different domains.
 6. **Mail Queues:** SMTP servers often use mail queues to manage the flow of incoming and outgoing emails. Messages are placed in queues for processing and delivery.
 7. **SMTP Authentication:** To prevent unauthorized use of email servers for sending spam, SMTP servers often require authentication before allowing email transmission.
-8. **Port:** SMTP typically uses port 25 for communication. However, modern email servers often use encrypted connections via STARTTLS or SSL/TLS on port 587 (Submission) to enhance security.
+8. **Ports:** TCP 25 is commonly used for server-to-server SMTP. Client message submission commonly uses TCP 587 with STARTTLS; TCP 465 is used for message submission over implicit TLS. Port 25 may also offer STARTTLS.
 
 ## SMTP Enumeration
 
@@ -26,7 +26,7 @@ Key features and aspects of SMTP include:
 
 During SMTP enumeration, a tester or analyst might perform the following activities:
 
-1. **Username Enumeration:** Trying different usernames or email addresses along with the VRFY or RCPT TO commands to determine whether a specific email address is valid on the target SMTP server. A successful response indicates a valid user or email address.
+1. **Recipient Validation:** Some servers support `VRFY` or expose different `RCPT TO` responses, but many deliberately disable or normalize these responses. A positive response is not always proof that a mailbox exists; behavior varies by server and policy.
 2. **User Enumeration via Error Messages:** Analyzing error messages returned by the SMTP server when attempting to send emails to non-existent addresses. Some servers might provide specific error codes indicating invalid users.
 3. **Email Address Structure:** Collecting information about the domain's email address structure (e.g., "[username@domain.com](mailto:username@domain.com)") to understand naming conventions and potentially predict valid email addresses.
 4. **Mail Server Configuration:** Gathering information about the mail server software and version in use through the SMTP banner or other response headers. This can help in identifying potential vulnerabilities associated with that specific software version.
@@ -35,3 +35,22 @@ During SMTP enumeration, a tester or analyst might perform the following activit
 7. **Domain Enumeration:** Identifying other domains or mail servers associated with the target organization by sending requests to the DNS (Domain Name System) server.
 8. **SMTP User Enumeration Tools:** Using specialized tools or scripts that automate the process of sending commands to the SMTP server to enumerate users or email addresses.
 
+
+
+## Practical checks
+
+Use these low-impact checks against an authorized mail server:
+
+```bash
+nmap -p25,465,587 -sV --script smtp-commands <AUTHORIZED_HOST>
+openssl s_client -starttls smtp -connect <AUTHORIZED_HOST>:587 -crlf
+```
+
+Review the greeting banner, advertised SMTP extensions, and TLS certificate. Do not attempt open-relay testing or recipient guessing unless those tests are explicitly included in the assessment scope.
+
+## Resources
+
+- [RFC 5321: Simple Mail Transfer Protocol](https://www.rfc-editor.org/rfc/rfc5321)
+- [RFC 6409: Message Submission](https://www.rfc-editor.org/rfc/rfc6409)
+- [RFC 8314: Cleartext Considered Obsolete](https://www.rfc-editor.org/rfc/rfc8314)
+- [Nmap SMTP scripts](https://nmap.org/nsedoc/categories/smtp.html)
