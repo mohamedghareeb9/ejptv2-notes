@@ -1,35 +1,42 @@
-# eJPTv2 Notes
+# eJPTv2 Study Notes
 
-A structured study notebook built from my two uploaded study PDFs. The older [dev-angelist/eJPTv2-Notes](https://github.com/dev-angelist/eJPTv2-Notes) repository is a topic/navigation reference only; its prose is not copied.
+A practical, organized study guide for the **eLearnSecurity Junior Penetration Tester (eJPTv2)** certification. Use the chapters, command references, and examples to build the knowledge and hands-on workflow needed for an entry-level penetration-testing assessment.
 
-> **Status:** active study project. These are personal notes, not official INE material or a claim of certification.
+The notes are organized around the main study domains and include foundational concepts, reconnaissance, enumeration, vulnerability assessment, host and network testing, Metasploit, post-exploitation, and web application testing.
 
-## Domains
-- [Assessment Methodologies & Auditing](assessment-methodologies-and-auditing/)
-- [Host & Network Penetration Testing](host-and-network-penetration-testing/)
-- [Web Application Penetration Testing](web-application-penetration-testing/)
+## Start studying
 
-## Start here
-1. [Information gathering](assessment-methodologies-and-auditing/1.1-information-gathering.md)
-2. [Footprinting and scanning](assessment-methodologies-and-auditing/1.2-footprinting-and-scanning.md)
-3. [Service enumeration](assessment-methodologies-and-auditing/1.3-enumeration/)
-4. [Vulnerability assessment](assessment-methodologies-and-auditing/1.4-vulnerability-assessment.md)
-5. [Auditing fundamentals](assessment-methodologies-and-auditing/1.5-auditing-fundamentals.md)
-6. [Linux foundations](host-and-network-penetration-testing/2.1-system-host-based-attacks/01-linux-foundations.md)
-7. [Active Directory fundamentals](host-and-network-penetration-testing/2.1-system-host-based-attacks/02-active-directory-fundamentals.md)
-8. [Network foundations and attacks](host-and-network-penetration-testing/2.2-network-based-attacks.md)
-9. [Metasploit workflow](host-and-network-penetration-testing/2.3-the-metasploit-framework/01-metasploit-workflow.md)
-10. [Exploitation](host-and-network-penetration-testing/2.4-exploitation.md)
-11. [Post-exploitation](host-and-network-penetration-testing/2.5-post-exploitation.md)
-12. [Social engineering source coverage](host-and-network-penetration-testing/2.6-social-engineering.md)
-13. [Web application testing](web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md)
+### 1. Assessment Methodologies & Auditing
+- [1.1 Information Gathering](assessment-methodologies-and-auditing/1.1-information-gathering.md)
+- [1.2 Footprinting & Scanning](assessment-methodologies-and-auditing/1.2-footprinting-and-scanning.md)
+- [1.3 Enumeration](assessment-methodologies-and-auditing/1.3-enumeration/)
+- [1.4 Vulnerability Assessment](assessment-methodologies-and-auditing/1.4-vulnerability-assessment.md)
+- [1.5 Auditing Fundamentals](assessment-methodologies-and-auditing/1.5-auditing-fundamentals.md)
 
-## Source and accuracy policy
-- Primary sources: eJPTv2.pdf (85 pages) and eJPTv2_Pr.pdf (107 pages).
-- The older public repository is a structure/topic reference, not source prose to reproduce.
-- Notes are rewritten in original wording. Commands and technical identifiers are retained where useful.
-- Ambiguous, outdated, or questionable source statements are flagged for review rather than silently treated as fact.
-- External clarifications are labelled. Practice only in your own lab or on explicitly authorized targets.
-- No exam questions, flags, lab answers, or credentials are included.
+### 2. Host & Network Penetration Testing
+- [2.1 System / Host-Based Attacks](host-and-network-penetration-testing/2.1-system-host-based-attacks/)
+- [2.2 Network-Based Attacks](host-and-network-penetration-testing/2.2-network-based-attacks.md)
+- [2.3 The Metasploit Framework](host-and-network-penetration-testing/2.3-the-metasploit-framework/)
+- [2.4 Exploitation](host-and-network-penetration-testing/2.4-exploitation.md)
+- [2.5 Post-Exploitation](host-and-network-penetration-testing/2.5-post-exploitation.md)
+- [2.6 Social Engineering](host-and-network-penetration-testing/2.6-social-engineering.md)
 
-See [SOURCES.md](SOURCES.md) for the source inventory and coverage map.
+### 3. Web Application Penetration Testing
+- [3.1 Introduction to Web Application Pentesting](web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md)
+
+## Quick reference
+- [eJPT Command Cheat Sheet](CHEAT-SHEET.md)
+
+## Suggested study workflow
+1. Learn the networking and operating-system foundations.
+2. Practice passive and active reconnaissance in a lab.
+3. Enumerate discovered services systematically.
+4. Understand how to validate vulnerabilities and identify relevant exploits.
+5. Practice exploitation and post-exploitation workflows in intentionally vulnerable environments.
+6. Apply the same methodology to web applications.
+7. Revisit the cheat sheet while practicing, rather than memorizing commands without understanding their output.
+
+## Important
+Only scan, exploit, or enumerate systems that you own or are explicitly authorized to test. Some commands and techniques can disrupt services or expose sensitive data. Check the current documentation for the installed tool version before using version-sensitive options.
+
+This is an independent study resource and is not an official INE publication or affiliated with INE.
