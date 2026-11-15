@@ -218,3 +218,29 @@ Tar flags from the source notes: c=create, x=extract, v=verbose, f=archive filen
 3. What does touch do to an existing file?
 4. What is the difference between archiving and compression?
 5. What do the z, j, and J flags mean in tar?
+
+## 14. Additional regular-expression patterns
+The practical notes also list these advanced patterns, with support depending on the regex engine:
+
+| Pattern | Meaning |
+|---|---|
+| `\\d` / `\\D` | Digit / non-digit in engines that support these classes |
+| `\\w` / `\\W` | Word character / non-word character |
+| `\\s` / `\\S` | Whitespace / non-whitespace |
+| `\\b` / `\\B` | Word boundary / non-word boundary |
+| `(.)\\1` | Backreference: repeat the character captured by group 1 |
+| `(?<=foo)bar` | Lookbehind example: match bar when preceded by foo |
+| `foo(?=bar)` | Lookahead example: match foo when followed by bar |
+| `(?:foo|bar)` | Non-capturing group |
+
+Examples from the source use PCRE mode with grep:
+
+~~~bash
+grep -P "(?<=foo)bar" file.txt
+grep -P "foo(?=bar)" file.txt
+grep -P "(.)\\\\1" file.txt
+grep -E "error|warning|failed" file.txt
+grep -o "\\\\b[a-zA-Z]{4}\\\\b" file.txt
+~~~
+
+Basic grep, extended grep, and PCRE are different regex dialects. Use the appropriate option and verify which engine is available on the system.
