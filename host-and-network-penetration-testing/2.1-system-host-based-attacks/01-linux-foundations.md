@@ -147,3 +147,74 @@ The source notes introduce sudo su to open a root shell and exit to leave it. Pr
 5. Why does execute permission have a different meaning on a directory?
 6. When would you use ps aux instead of top?
 7. Difference between APT and dpkg?
+
+## 10. Vim essentials
+The practical PDF introduces Vim as a modal editor.
+
+| Mode | Purpose |
+|---|---|
+| Normal | Navigate and issue editing commands |
+| Insert | Type text |
+| Visual | Select text |
+| Command-line | Save, quit, and search |
+
+Basic sequence:
+1. Open a file with `vim filename.txt`.
+2. Press `i` to enter Insert mode.
+3. Press Esc to return to Normal mode.
+4. Use `:w` to save, `:q` to quit, `:wq` to save and quit, or `:q!` to quit without saving.
+
+Other commands from the notes: `dd` deletes a line, `yy` copies a line, `p` pastes, `u` undoes, `Ctrl+r` redoes, `/text` searches, `n` moves to the next match, `gg` goes to the top, and `G` goes to the bottom.
+
+## 11. File timestamps and locating files
+
+~~~bash
+touch empty.txt
+locate file.txt
+locate -i file
+sudo updatedb
+find / -name file.txt
+find . -iname "*.txt"
+find . -type f
+find . -type d
+find . -size +10M
+find . -mtime -1
+find . -perm 777
+~~~
+
+The source's memory rule is: `locate` is fast because it searches a database and may be stale; `find` searches the filesystem and is more current but can be slower. The locate database can be refreshed with updatedb.
+
+The notes also demonstrate actions on matches:
+
+~~~bash
+find . -name "*.tmp" -delete
+find . -name "*.sh" -exec chmod +x {} \\\;
+find /path -type f -exec grep -l "needle" {} \\\;
+~~~
+
+Review the matched paths before using deletion or bulk modification options.
+
+## 12. Archives and compression
+Archiving combines files; compression reduces data size. Common formats include tar, tar.gz, tar.bz2, tar.xz, zip, gz, bz2, and xz.
+
+~~~bash
+tar -cvf archive.tar folder/
+tar -xvf archive.tar
+tar -czvf archive.tar.gz folder/
+tar -xzvf archive.tar.gz
+tar -cjvf archive.tar.bz2 folder/
+tar -xjvf archive.tar.bz2
+zip -r archive.zip folder/
+unzip archive.zip
+tar -tvf archive.tar.gz
+unzip -l archive.zip
+~~~
+
+Tar flags from the source notes: c=create, x=extract, v=verbose, f=archive filename, z=gzip, j=bzip2, and J=xz. Single-file compressors such as gzip, bzip2, and xz commonly replace the original file with the compressed version; check the command behavior before using it on important data.
+
+## 13. Additional self-check
+1. Why does Vim start in Normal mode?
+2. What is the difference between locate and find?
+3. What does touch do to an existing file?
+4. What is the difference between archiving and compression?
+5. What do the z, j, and J flags mean in tar?
