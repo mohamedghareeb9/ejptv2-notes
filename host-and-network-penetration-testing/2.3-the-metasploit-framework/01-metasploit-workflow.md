@@ -89,3 +89,10 @@ The `hashdump` command can retrieve password hashes from a target. Treat credent
 4. What does a Meterpreter session represent?
 5. Why does a session not automatically imply administrator access?
 6. Why is credential material sensitive?
+
+
+## Resources
+
+- [Metasploit documentation](https://docs.metasploit.com/)
+- [Metasploit Framework source repository](https://github.com/rapid7/metasploit-framework)
+- [Metasploit Unleashed](https://www.offsec.com/metasploit-unleashed/)
