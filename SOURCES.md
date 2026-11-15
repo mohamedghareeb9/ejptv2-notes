@@ -12,6 +12,7 @@ This repository is an independent study resource. The chapters combine practical
 - [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
 - [WordPress Security and Hardening](https://developer.wordpress.org/advanced-administration/security/)
 - [WPScan User Documentation](https://github.com/wpscanteam/wpscan/wiki/WPScan-User-Documentation)
+- [WPScan 4.0 release announcement (May 2026)](https://wpscan.com/blog/wpscan-4-0-0-were-back/)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
 - [MITRE CVE](https://www.cve.org/)
