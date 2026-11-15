@@ -3262,25 +3262,25 @@ Newer installs of Drupal by default block access to the `CHANGELOG.txt` and `REA
 
 In _/user/register_ just try to create a username and if the name is already taken it will be notified:
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%2813%29.png" alt=""><figcaption></figcaption></figure>
+
 
 #### Request new password
 
 If you request a new password for an existing username:
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%2814%29.png" alt=""><figcaption></figcaption></figure>
+
 
 If you request a new password for a non-existent username:
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%2810%29.png" alt=""><figcaption></figcaption></figure>
+
 
 ### Get number of users
 
 Accessing _/user/\<number>_ you can see the number of existing users, in this case is 2 as _/users/3_ returns a not found error:
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%2812%29.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%2811%29.png" alt=""><figcaption></figcaption></figure>
+
+
 
 ### Hidden pages
 
@@ -3317,11 +3317,11 @@ You need the **plugin php to be installed** (check it accessing to _/modules/php
 
 In an intentionally vulnerable, isolated legacy Drupal lab, the historical PHP Filter workflow involved enabling the module and selecting PHP as the text format. This is an obsolete, unsafe configuration and must not be enabled on a production system.
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%286%29.png" alt=""><figcaption></figcaption></figure>
+
 
 For defensive validation, verify whether the legacy PHP Filter module exists and whether untrusted users can select executable PHP text formats. Do not create executable content on a live site.
 
-<figure><img src="https://raw.githubusercontent.com/dev-angelist/eJPTv2-Notes/main/.gitbook/assets/image%20%287%29.png" alt=""><figcaption></figcaption></figure>
+
 
 A safe assessment records the module state, permitted roles, and text-format permissions, then recommends disabling the legacy feature and restricting executable formats.
 
