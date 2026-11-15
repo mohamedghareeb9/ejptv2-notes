@@ -242,3 +242,14 @@ grep -o "\b[a-zA-Z]{4}\b" file.txt
 ~~~
 
 Basic grep, extended grep, and PCRE are different regex dialects. Use the appropriate option and verify which engine is available on the system.
+
+
+## Resources
+
+- [GNU Coreutils manual](https://www.gnu.org/software/coreutils/manual/coreutils.html)
+- [GNU grep manual](https://www.gnu.org/software/grep/manual/grep.html)
+- [GNU Findutils manual](https://www.gnu.org/software/findutils/manual/html_mono/find.html)
+- [GNU Bash manual](https://www.gnu.org/software/bash/manual/)
+- [Vim documentation](https://www.vim.org/docs.php)
+- [Debian APT user guide](https://www.debian.org/doc/manuals/apt-guide/)
+- [The Linux man-pages project](https://www.kernel.org/doc/man-pages/)
