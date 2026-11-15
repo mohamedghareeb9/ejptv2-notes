@@ -21,7 +21,8 @@ A structured study notebook built from my two uploaded study PDFs. The older [de
 9. [Metasploit workflow](host-and-network-penetration-testing/2.3-the-metasploit-framework/01-metasploit-workflow.md)
 10. [Exploitation](host-and-network-penetration-testing/2.4-exploitation.md)
 11. [Post-exploitation](host-and-network-penetration-testing/2.5-post-exploitation.md)
-12. [Web application testing](web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md)
+12. [Social engineering source coverage](host-and-network-penetration-testing/2.6-social-engineering.md)
+13. [Web application testing](web-application-penetration-testing/3.1-intro-to-web-app-pentesting.md)
 
 ## Source and accuracy policy
 - Primary sources: eJPTv2.pdf (85 pages) and eJPTv2_Pr.pdf (107 pages).
