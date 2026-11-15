@@ -1,7 +1,5 @@
 # Metasploit Framework: Workflow and Core Concepts
 
-**Source basis:** eJPTv2.pdf, Metasploit section, and the repository's vulnerability-assessment notes. Lab or explicitly authorized testing only.
-
 ## 1. What Metasploit is
 The Metasploit Framework organizes security testing modules for auxiliary tasks, exploit validation, payload handling, and post-exploitation activities. The framework does not decide whether a test is authorized. Confirm scope and understand a module's effect before running it.
 
@@ -43,7 +41,7 @@ services
 vulns
 ~~~
 
-The study notes show importing Nmap scan data into the Metasploit database:
+Import Nmap scan data into the Metasploit database with:
 
 ~~~bash
 db_nmap -sS -sV -O <authorized-target>
@@ -52,14 +50,14 @@ db_nmap -sS -sV -O <authorized-target>
 A scan result is evidence to investigate, not proof that an exploit will work.
 
 ## 5. Sessions and Meterpreter
-The source notes identify the session list and interaction workflow:
+List available sessions and interact with a selected session:
 
 ~~~text
 sessions -l
 sessions -i <session-id>
 ~~~
 
-Meterpreter commands listed in the source notes include:
+Common Meterpreter commands include:
 
 ~~~text
 sysinfo
@@ -72,7 +70,7 @@ download <remote-file>
 
 These commands are included as recognition material for a controlled lab. Their effect depends on the session type and permissions. Do not assume getsystem will succeed or that a successful session automatically grants administrator privileges.
 
-The source notes also mention hashdump. Treat credential material as highly sensitive: do not collect or retain real user hashes unless the engagement explicitly authorizes that activity and defines secure handling.
+The `hashdump` command can retrieve password hashes from a target. Treat credential material as highly sensitive: do not collect or retain real user hashes unless the engagement explicitly authorizes that activity and defines secure handling.
 
 ## 6. Safe validation workflow
 1. Confirm written authorization and target scope.
