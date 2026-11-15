@@ -10,6 +10,8 @@ This repository is an independent study resource. The chapters combine practical
 - [Nmap Scripting Engine](https://nmap.org/book/nse.html)
 - [Metasploit Documentation](https://docs.metasploit.com/)
 - [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
+- [WordPress Security and Hardening](https://developer.wordpress.org/advanced-administration/security/)
+- [WPScan User Documentation](https://github.com/wpscanteam/wpscan/wiki/WPScan-User-Documentation)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [PortSwigger Web Security Academy](https://portswigger.net/web-security)
 - [MITRE CVE](https://www.cve.org/)
